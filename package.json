@@ -1,7 +1,7 @@
 {
   "name": "@builder.io/root",
   "private": true,
-  "workspaces": [
+  "workspaces.old": [
     "packages",
     "packages/sdks-tests",
     "packages/sdks",
@@ -10,7 +10,14 @@
     "packages/react-tests/*",
     "packages/sdks/e2e/*",
     "packages/sdks/snippets/*",
-    "packages/sdks/output/*"
+    "packages/sdks/output/*",
+    "examples/next-js-app-router"
+  ],
+  "workspaces": [
+    "packages",
+    "packages/react",
+    "packages/core",
+    "examples/next-js-app-router"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
