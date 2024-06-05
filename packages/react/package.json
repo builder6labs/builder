@@ -126,6 +126,7 @@
   "dependencies": {
     "@builder.io/sdk": "workspace:*",
     "@emotion/core": "^10.0.17",
+    "amis": "^6.5.0",
     "hash-sum": "^2.0.0",
     "isolated-vm": "^4.5.0",
     "preact": "^10.1.0"
