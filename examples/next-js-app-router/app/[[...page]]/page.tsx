@@ -45,7 +45,7 @@ export default async function Page(props: PageProps) {
                                     "options": {
                                         "schema": {
                                           "type": "page",
-                                          "title": "Welcome to Steedos2",
+                                          "title": "Welcome to Steedos",
                                           "body":  [
                                             {
                                               "id": "u:28f76ca888bb",
@@ -107,20 +107,7 @@ export default async function Page(props: PageProps) {
                                 },
                                
                             }
-                        ],
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "flex",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "flexShrink": "0",
-                                "boxSizing": "border-box",
-                                "width": "100%",
-                                "paddingLeft": "20px",
-                                "paddingRight": "20px"
-                            }
-                        }
+                        ]
                     }
                 ],
                 "url": "/",

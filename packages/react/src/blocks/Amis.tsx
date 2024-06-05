@@ -25,16 +25,14 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, {}> {
   componentDidMount() {
     if (this.firstLoad) {
       this.firstLoad = false;
-      this.amisScoped = this.amis.embed(this.ref.current, this.props.data);
+      this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, this.props.data);
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.schema !== this.props.schema) {
       this.amisScoped.updateSchema(this.props.schema);
-    }
-    if (prevProps.data !== this.props.data) {
-      this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, this.props.data);
+    } else if (prevProps.data !== this.props.data) {
       this.amisScoped.updateProps(this.props.data, () => {
         /*更新回调 */
       });
