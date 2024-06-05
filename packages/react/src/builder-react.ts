@@ -28,6 +28,7 @@ export { BuilderComponent as BuilderPage, onChange, RegisteredComponent };
 export { BuilderComponent };
 export { BuilderComponent as Content };
 
+export { Amis } from './blocks/Amis';
 export { Text } from './blocks/Text';
 export { Slot as Dropzone } from './blocks/Slot';
 export { Fragment } from './blocks/Fragment';

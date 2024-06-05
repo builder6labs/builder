@@ -424,17 +424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@builder.io/packages@workspace:packages":
-  version: 0.0.0-use.local
-  resolution: "@builder.io/packages@workspace:packages"
-  dependencies:
-    "@changesets/cli": ^2.27.1
-    nx: ^16.6.0
-    nx-cloud: ^16.2.0
-  languageName: unknown
-  linkType: soft
-
-"@builder.io/react@workspace:*, @builder.io/react@workspace:packages/react":
+"@builder.io/react@^3.2.7, @builder.io/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@builder.io/react@workspace:packages/react"
   dependencies:
@@ -18397,7 +18387,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "try-use-client@workspace:examples/next-js-app-router"
   dependencies:
-    "@builder.io/react": ^2.1.0
+    "@builder.io/react": ^3.2.7
     "@types/node": 20.1.1
     "@types/react": 18.2.6
     "@types/react-dom": 18.2.4
