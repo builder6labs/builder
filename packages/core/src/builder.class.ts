@@ -198,7 +198,7 @@ interface Event {
 
 /**
  * Attributes that can be used for custom targeting. {@link
- * https://www.builder.io/c/docs/guides/targeting-and-scheduling}
+ * https://www.builder6.com/c/docs/guides/targeting-and-scheduling}
  */
 export interface UserAttributes {
   [key: string]:
@@ -279,7 +279,7 @@ type AllowEnrich =
 export type GetContentOptions = AllowEnrich & {
   /**
    * User attribute key value pairs to be used for targeting
-   * https://www.builder.io/c/docs/custom-targeting-attributes
+   * https://www.builder6.com/c/docs/custom-targeting-attributes
    *
    * e.g.
    * ```js
@@ -312,11 +312,11 @@ export type GetContentOptions = AllowEnrich & {
    *
    * Use a higher value for better performance, lower for content that will change more frequently
    *
-   * @see {@link https://www.builder.io/c/docs/query-api#__next:~:text=%26includeRefs%3Dtrue-,cacheSeconds,-No}
+   * @see {@link https://www.builder6.com/c/docs/query-api#__next:~:text=%26includeRefs%3Dtrue-,cacheSeconds,-No}
    */
   cacheSeconds?: number;
   /**
-   * Builder.io uses stale-while-revalidate caching at the CDN level. This means we always serve
+   * builder6.com uses stale-while-revalidate caching at the CDN level. This means we always serve
    * from edge cache and update caches in the background for maximum possible performance. This also
    * means that the more frequently content is requested, the more fresh it will be. The longest we
    * will ever hold something in stale cache is 1 day by default, and you can set this to be shorter
@@ -383,7 +383,7 @@ export type GetContentOptions = AllowEnrich & {
   cache?: boolean;
   /**
    * Set to the current locale in your application if you want localized inputs to be auto-resolved, should match one of the locales keys in your space settings
-   * Learn more about adding or removing locales [here](https://www.builder.io/c/docs/add-remove-locales)
+   * Learn more about adding or removing locales [here](https://www.builder6.com/c/docs/add-remove-locales)
    */
   locale?: string;
   /**
@@ -521,7 +521,7 @@ interface Map<K, V> {
  * })
  * ```
  *
- * Learn more about registering custom components [here](https://www.builder.io/c/docs/custom-react-components)
+ * Learn more about registering custom components [here](https://www.builder6.com/c/docs/custom-react-components)
  */
 export interface Input {
   /** This is the name of the component prop this input represents */
@@ -535,8 +535,8 @@ export interface Input {
   /**
    * The type of input to use, such as 'text'
    *
-   * See all available inputs [here](https://www.builder.io/c/docs/custom-components-input-types)
-   * and you can create your own custom input types and associated editor UIs with [plugins](https://www.builder.io/c/docs/extending/plugins)
+   * See all available inputs [here](https://www.builder6.com/c/docs/custom-components-input-types)
+   * and you can create your own custom input types and associated editor UIs with [plugins](https://www.builder6.com/c/docs/extending/plugins)
    */
   type: string;
   /** Is this input mandatory or not */
@@ -650,7 +650,7 @@ export interface Input {
  * })
  * ```
  *
- * Learn more about registering custom components [here](https://www.builder.io/c/docs/custom-react-components)
+ * Learn more about registering custom components [here](https://www.builder6.com/c/docs/custom-react-components)
  */
 export interface Component {
   /**
@@ -675,7 +675,7 @@ export interface Component {
   image?: string;
   /**
    * Link to a screenshot shown when user hovers over the component in Builder's editor
-   * use https://builder.io/upload to upload your screeshot, for easier resizing by Builder.
+   * use https://builder6.com/upload to upload your screeshot, for easier resizing by Builder.
    */
   screenshot?: string;
 
@@ -686,7 +686,7 @@ export interface Component {
    * Default behaviors include special "virtual options", such as a custom
    * aspect ratio editor for Images, or a special column editor for Columns
    *
-   * Learn more about overriding built-in components here: https://www.builder.io/c/docs/custom-components-overriding
+   * Learn more about overriding built-in components here: https://www.builder6.com/c/docs/custom-components-overriding
    */
   override?: boolean;
 
@@ -700,7 +700,7 @@ export interface Component {
   /** @hidden @deprecated */
   type?: 'angular' | 'webcomponent' | 'react' | 'vue';
   /**
-   * Default styles to apply when droppged into the Builder.io editor
+   * Default styles to apply when droppged into the builder6.com editor
    *
    * @example
    * ```js
@@ -797,7 +797,7 @@ export interface Component {
   /**
    * Use to restrict access to your component based on a the current user permissions
    * By default components will show to all users
-   * for more information on permissions in builder check https://www.builder.io/c/docs/guides/roles-and-permissions
+   * for more information on permissions in builder check https://www.builder6.com/c/docs/guides/roles-and-permissions
    */
   requiredPermissions?: Array<Permission>;
 }
@@ -822,7 +822,7 @@ export interface InsertMenuItem {
  * Use this to register custom sections in the Insert menu, for instance
  * to make new sections to organize your custom components
  *
- * ![Example of what a custom section looks like](https://cdn.builder.io/api/v1/image/assets%2F7f7bbcf72a1a4d72bac5daa359e7befd%2Fe5f2792e9c0f44ed89a9dcb77b945858)
+ * ![Example of what a custom section looks like](https://cdn.builder6.com/api/v1/image/assets%2F7f7bbcf72a1a4d72bac5daa359e7befd%2Fe5f2792e9c0f44ed89a9dcb77b945858)
  *
  * @example
  * ```js
@@ -874,7 +874,7 @@ export class Builder {
   static singletonInstance: Builder;
   /**
    * Makes it so that a/b tests generate code like {@link
-   * https://www.builder.io/blog/high-performance-no-code#__next:~:text=Static%20generated%20A%2FB%20testing}
+   * https://www.builder6.com/blog/high-performance-no-code#__next:~:text=Static%20generated%20A%2FB%20testing}
    * instead of the old way where we render only one test group at a time on the
    * server. This is the preferred/better way not and we should ultimately make it
    * the default
@@ -887,11 +887,11 @@ export class Builder {
 
   static editors: any[] = [];
   static trustedHosts: string[] = [
-    '*.beta.builder.io',
-    'beta.builder.io',
-    'builder.io',
+    '*.beta.builder6.com',
+    'beta.builder6.com',
+    'builder6.com',
     'localhost',
-    'qa.builder.io',
+    'qa.builder6.com',
   ];
   static serverContext: any;
   static plugins: any[] = [];
@@ -948,7 +948,7 @@ export class Builder {
 
       if (!Builder.isTrustedHost(hostname)) {
         console.error(
-          'Builder.registerEditor() called in the wrong environment! You cannot load custom editors from your app, they must be loaded through the Builder.io app itself. Follow the readme here for more details: https://github.com/builderio/builder/tree/master/plugins/cloudinary or contact chat us in our Spectrum community for help: https://spectrum.chat/builder'
+          'Builder.registerEditor() called in the wrong environment! You cannot load custom editors from your app, they must be loaded through the builder6.com app itself. Follow the readme here for more details: https://github.com/builderio/builder/tree/master/plugins/cloudinary or contact chat us in our Spectrum community for help: https://spectrum.chat/builder'
         );
       }
     }
@@ -1042,7 +1042,7 @@ export class Builder {
       console.warn('System.js not available. Please include System.js when using Builder.import');
       return;
     }
-    return System.import(`https://cdn.builder.io/systemjs/${packageName}`);
+    return System.import(`https://cdn.builder6.com/systemjs/${packageName}`);
   }
 
   // TODO: this is quick and dirty, do better implementation later. Also can be unreliable
@@ -1665,7 +1665,7 @@ export class Builder {
         );
       }
       // TODO: postmessage to parent the builder info for every package
-      // type: 'builder.sdk', data: { name: '@builder.io/react', version: '0.1.23' }
+      // type: 'builder.sdk', data: { name: '@builder6.com/react', version: '0.1.23' }
       // (window as any).BUILDER_VERSION = Builder.VERSION;
       // Ensure always one Builder global singleton
       // TODO: some people won't want this, e.g. rakuten
@@ -2321,24 +2321,24 @@ export class Builder {
   get host() {
     switch (this.env) {
       case 'qa':
-        return 'https://qa.builder.io';
+        return 'https://qa.builder6.com';
       case 'test':
         return 'https://builder-io-test.web.app';
       case 'fast':
-        return 'https://fast.builder.io';
+        return 'https://fast.builder6.com';
       case 'cloud':
-        return 'https://cloud.builder.io';
+        return 'https://cloud.builder6.com';
       case 'cdn2':
-        return 'https://cdn2.builder.io';
+        return 'https://cdn2.builder6.com';
       case 'cdn-qa':
-        return 'https://cdn-qa.builder.io';
+        return 'https://cdn-qa.builder6.com';
       case 'development':
       case 'dev':
         return 'http://localhost:5000';
       case 'cdn-prod':
-        return 'https://cdn.builder.io';
+        return 'https://cdn.builder6.com';
       default:
-        return Builder.overrideHost || 'https://cdn.builder.io';
+        return Builder.overrideHost || 'https://cdn.builder6.com';
     }
   }
 

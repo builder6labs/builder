@@ -70,10 +70,10 @@ if (isBrowser && !globalVar[globalLoadedVar]) {
         : dev
         ? 'http://localhost:1234'
         : qa
-        ? 'https://qa.builder.io'
+        ? 'https://qa.builder6.com'
         : beta
-        ? 'https://beta.builder.io'
-        : 'https://builder.io';
+        ? 'https://beta.builder6.com'
+        : 'https://builder6.com';
 
       const url = host + '/fiddle' + (entry ? '/' + entry : '') + (view ? '/view' : '');
 

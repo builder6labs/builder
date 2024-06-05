@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { PropsWithChildren } from 'react';
-import { BuilderElement } from '@builder.io/sdk';
-import { BuilderBlock as BuilderBlockComponent } from '../components/builder-block.component';
+import { BuilderElement, Builder } from '@builder.io/sdk';
+
 import { withBuilder } from '../functions/with-builder';
 
 interface AmisProps {
@@ -10,12 +10,44 @@ interface AmisProps {
   data: string;
 }
 
-class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, { inView?: boolean }> {
-  ref: HTMLElement | null = null;
+class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, { }> {
+  ref: any = null;
+  amisScoped: any = null;
+  
+  firstLoad = true;
+  amis = Builder.isBrowser && window["amisRequire"] && window["amisRequire"]('amis/embed');
 
-  state = {
-    inView: false,
-  };
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.firstLoad) {
+      this.firstLoad = false;
+      this.amisScoped = this.amis.embed(this.ref.current, this.props.data);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.schema !== this.props.schema) {
+      this.amisScoped.updateSchema(this.props.schema);
+    } 
+    if (prevProps.data !== this.props.data) {
+      this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, this.props.data);
+      this.amisScoped.updateProps(
+        this.props.data , () => {
+          /*更新回调 */
+        } 
+      );
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.amisScoped) {
+      this.amisScoped.unmount();
+    }
+  }
 
   render() {
     return <div ref={ref => (this.ref = ref)}></div>;
