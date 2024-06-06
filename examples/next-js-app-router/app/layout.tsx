@@ -1,3 +1,8 @@
+/*
+ * @LastEditTime: 2024-06-06 22:12:28
+ * @LastEditors: liaodaxue
+ * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import './globals.css';
 import { Inter } from 'next/font/google';
 
@@ -13,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <script src="https://unpkg.com/amis@6.5.0/sdk/sdk.js" />
-        <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/sdk.css" />
+        <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/antd.css" />
         <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/helper.css" />
         <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/iconfont.css" />        
       </head>

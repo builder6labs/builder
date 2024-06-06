@@ -1,13 +1,22 @@
+/*
+ * @LastEditTime: 2024-06-06 22:10:52
+ * @LastEditors: liaodaxue
+ * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { PropsWithChildren } from 'react';
 import { BuilderElement, Builder } from '@builder6/sdk';
 
 import { withBuilder } from '../functions/with-builder';
+import { BuilderStore } from '../store/builder-store';
 
 interface AmisProps {
-  schema: string;
-  data: string;
+  context: object;
+  schema: object;
+  data: object;
+  builderState: BuilderStore;
+  builderBlock: BuilderElement;
 }
 
 class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, {}> {
@@ -18,14 +27,27 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, {}> {
   amis = Builder.isBrowser && window['amisRequire'] && window['amisRequire']('amis/embed');
 
   constructor(props) {
+    console.log('AmisComponent', props);
+
     super(props);
     this.ref = React.createRef();
   }
 
   componentDidMount() {
+    const { builderState } = this.props;
+    const data = {
+      ...builderState.state,
+      ...this.props.data,
+    };
+    const context = {
+      theme: 'antd',
+      ...this.props.context,
+      ...builderState.context,
+    };
+
     if (this.firstLoad) {
       this.firstLoad = false;
-      this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, this.props.data);
+      this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, data, context);
     }
   }
 

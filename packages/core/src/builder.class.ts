@@ -2231,7 +2231,7 @@ export class Builder {
       options.key ||
       options.alias ||
       // TODO: SDKs only pass entry key when given to them, and never when editing...
-      // options.entry ||
+      options.entry ||
 
       // TODO: this is ugly - instead of multiple of same model with different options are sent
       // say requires key/alias. Or if not perhaps make a reliable hash of the options and use that.
@@ -2533,6 +2533,7 @@ export class Builder {
       `${host}/api/${apiVersionBasedOnFn}/${fn}/${this.apiKey}/${keyNames}` +
       (queryParams && hasParams ? `?${queryStr}` : '');
 
+    console.log('url', url);
     const promise = getFetch()(url, requestOptions)
       .then(res => res.json())
       .then(

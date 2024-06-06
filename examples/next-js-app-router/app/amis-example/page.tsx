@@ -24,7 +24,7 @@ export default async function Page(props: PageProps) {
                 "title": "my-builder-app",
                 "blocks": [
                     {
-                        "@type": "@builder6/sdk:Element",
+                        "@type": "@builder.io/sdk:Element",
                         "@version": 2,
                         "layerName": "Page",
                         "id": "builder-362931f17c9c4d6195f5bec2749348bc",
