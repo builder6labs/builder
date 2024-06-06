@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core';
 import React from 'react';
 
 import { BuilderBlock as BuilderBlockComponent } from '../components/builder-block.component';
-import { BuilderElement, Builder } from '@builder.io/sdk';
+import { BuilderElement, Builder } from '@builder6/sdk';
 import { BuilderMetaContext } from '../store/builder-meta';
 import { withBuilder } from '../functions/with-builder';
 import { throttle } from '../functions/throttle';

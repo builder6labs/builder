@@ -12,7 +12,7 @@ export type SerializableCSSStyleDeclaration = Partial<Record<keyof CSSStyleDecla
  * An object representing an element in Builder
  */
 export interface BuilderElement {
-  '@type': '@builder.io/sdk:Element';
+  '@type': '@builder6/sdk:Element';
   '@version'?: number;
   id?: string;
   tagName?: string;

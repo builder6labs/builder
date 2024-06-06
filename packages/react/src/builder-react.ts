@@ -1,7 +1,7 @@
 import './scripts/init-editing';
 
-import { builder, Builder } from '@builder.io/sdk';
-export { BuilderElement } from '@builder.io/sdk';
+import { builder, Builder } from '@builder6/sdk';
+export { BuilderElement } from '@builder6/sdk';
 
 Builder.isReact = true;
 

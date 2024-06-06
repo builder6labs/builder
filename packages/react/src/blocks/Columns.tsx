@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 import { BuilderBlocks } from '../components/builder-blocks.component';
 import { withBuilder } from '../functions/with-builder';
 import { Link } from '../components/Link';
@@ -12,7 +12,7 @@ const DEFAULT_ASPECT_RATIO = 0.7004048582995948;
 
 const defaultBlocks: BuilderElement[] = [
   {
-    '@type': '@builder.io/sdk:Element',
+    '@type': '@builder6/sdk:Element',
     responsiveStyles: {
       large: {
         display: 'flex',
@@ -41,7 +41,7 @@ const defaultBlocks: BuilderElement[] = [
     },
   },
   {
-    '@type': '@builder.io/sdk:Element',
+    '@type': '@builder6/sdk:Element',
     responsiveStyles: {
       large: {
         display: 'flex',

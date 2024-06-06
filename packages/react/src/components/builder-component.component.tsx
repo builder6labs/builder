@@ -13,7 +13,7 @@ import {
   BuilderElement,
   BuilderContent as Content,
   Component,
-} from '@builder.io/sdk';
+} from '@builder6/sdk';
 import { BuilderStoreContext } from '../store/builder-store';
 import hash from 'hash-sum';
 import onChange from '../../lib/on-change';

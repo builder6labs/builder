@@ -1,7 +1,7 @@
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 
 export const el = (options?: Partial<BuilderElement>, useId?: number): BuilderElement => ({
-  '@type': '@builder.io/sdk:Element',
+  '@type': '@builder6/sdk:Element',
   id: `builder-${useId ? useId : Math.random().toString().split('.')[1]}`,
   ...options,
 });

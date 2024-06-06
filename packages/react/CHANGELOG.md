@@ -5,7 +5,7 @@
 ### Patch Changes
 
 - Updated dependencies [46c38b8]
-  - @builder.io/sdk@2.2.3
+  - @builder6/sdk@2.2.3
 
 ## 3.2.6
 
@@ -31,7 +31,7 @@
 
 - f67242f: types: add `meta` property to Input
 - Updated dependencies [f67242f]
-  - @builder.io/sdk@2.2.2
+  - @builder6/sdk@2.2.2
 
 ## 3.2.2
 
@@ -214,4 +214,4 @@ builder.apiVersion = 'v3';
 
 ## 1.1.50
 
-- update `@builder.io/sdk` to `1.1.26` (adds bugfix to `noTrack` correctly ignoring session cookies)
+- update `@builder6/sdk` to `1.1.26` (adds bugfix to `noTrack` correctly ignoring session cookies)

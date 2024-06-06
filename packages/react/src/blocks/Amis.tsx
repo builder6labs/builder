@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { PropsWithChildren } from 'react';
-import { BuilderElement, Builder } from '@builder.io/sdk';
+import { BuilderElement, Builder } from '@builder6/sdk';
 
 import { withBuilder } from '../functions/with-builder';
 

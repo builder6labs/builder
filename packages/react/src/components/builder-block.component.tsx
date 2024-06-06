@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Builder, builder, BuilderElement, Component } from '@builder.io/sdk';
+import { Builder, builder, BuilderElement, Component } from '@builder6/sdk';
 import { ClassNames, jsx } from '@emotion/core';
 import React from 'react';
 import { getSizesForBreakpoints, Size, sizeNames } from '../constants/device-sizes.constant';

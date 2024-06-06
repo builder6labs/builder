@@ -1,5 +1,5 @@
 {
-  "name": "@builder.io/react",
+  "name": "@builder6/react",
   "version": "3.2.7",
   "description": "",
   "keywords": [],
@@ -114,7 +114,7 @@
     "typescript": "^4.7.4",
     "validate-commit-msg": "^2.12.2"
   },
-  "//": "TODO: maybe make @builder.io/sdk peerdependency",
+  "//": "TODO: maybe make @builder6/sdk peerdependency",
   "optionalDependencies": {
     "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2"
@@ -124,7 +124,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@builder.io/sdk": "workspace:*",
+    "@builder6/sdk": "workspace:*",
     "@emotion/core": "^10.0.17",
     "hash-sum": "^2.0.0",
     "isolated-vm": "^4.5.0",

@@ -36,7 +36,7 @@ const umdOptions = {
       file: 'dist/index.umd.js',
       sourcemap: true,
       amd: {
-        id: '@builder.io/sdk',
+        id: '@builder6/sdk',
       },
     },
   ],
@@ -52,7 +52,7 @@ const umdMinOptions = {
       file: pkg.unpkg,
       sourcemap: true,
       amd: {
-        id: '@builder.io/sdk',
+        id: '@builder6/sdk',
       },
     },
   ],

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { PropsWithChildren } from 'react';
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 import { BuilderBlock as BuilderBlockComponent } from '../components/builder-block.component';
 import { withBuilder } from '../functions/with-builder';
 
@@ -139,7 +139,7 @@ export const Section = withBuilder(SectionComponent, {
 
   defaultChildren: [
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           textAlign: 'center',

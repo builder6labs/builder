@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 import { BuilderBlock } from '../components/builder-block.component';
 
 const isBuilderElement = (item: unknown): item is BuilderElement => {
   return Boolean(
-    typeof item === 'object' && item && (item as any)?.['@type'] === '@builder.io/sdk:Element'
+    typeof item === 'object' && item && (item as any)?.['@type'] === '@builder6/sdk:Element'
   );
 };
 
@@ -25,7 +25,7 @@ const isBuilderElement = (item: unknown): item is BuilderElement => {
  *      name: 'MyButton',
  *      defaultChildren: [
  *        {
- *          '@type': '@builder.io/sdk:Element'
+ *          '@type': '@builder6/sdk:Element'
  *        }
  *      ]
  *    })

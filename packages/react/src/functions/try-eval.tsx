@@ -1,5 +1,5 @@
 'use client';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { safeDynamicRequire } from './safe-dynamic-require';
 import { isDebug } from './is-debug';
 import { getIsolateContext, makeFn } from './string-to-function';

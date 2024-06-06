@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { BuilderElement, Builder } from '@builder.io/sdk';
+import { BuilderElement, Builder } from '@builder6/sdk';
 
 export interface RawTextProps {
   attributes?: any;

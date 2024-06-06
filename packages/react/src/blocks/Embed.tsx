@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { withBuilder } from '../functions/with-builder';
 
 class EmbedComponent extends React.Component<any> {

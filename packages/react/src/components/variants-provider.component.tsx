@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { builder, Builder, BuilderContent, BuilderContentVariation } from '@builder.io/sdk';
+import { builder, Builder, BuilderContent, BuilderContentVariation } from '@builder6/sdk';
 
 function getData(content: BuilderContentVariation) {
   if (typeof content?.data === 'undefined') {

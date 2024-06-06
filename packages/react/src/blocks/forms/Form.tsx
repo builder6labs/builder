@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 import { BuilderBlock as BuilderBlockComponent } from '../../components/builder-block.component';
-import { BuilderElement, Builder, builder } from '@builder.io/sdk';
+import { BuilderElement, Builder, builder } from '@builder6/sdk';
 import { BuilderBlocks } from '../../components/builder-blocks.component';
 import { BuilderStoreContext } from '../../store/builder-store';
 import { set } from '../../functions/set';
@@ -451,7 +451,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder.io/sdk:Element',
+          '@type': '@builder6/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -485,7 +485,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder.io/sdk:Element',
+          '@type': '@builder6/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -510,7 +510,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder.io/sdk:Element',
+          '@type': '@builder6/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -547,7 +547,7 @@ export const Form = withBuilder(FormComponent, {
   canHaveChildren: true,
   defaultChildren: [
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -561,7 +561,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -576,7 +576,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -590,7 +590,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -605,7 +605,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder.io/sdk:Element',
+      '@type': '@builder6/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',

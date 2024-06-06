@@ -1,4 +1,4 @@
-import { Builder, builder } from '@builder.io/sdk';
+import { Builder, builder } from '@builder6/sdk';
 import { safeDynamicRequire } from './safe-dynamic-require';
 import { isDebug } from './is-debug';
 import { shouldForceBrowserRuntimeInNode } from './should-force-browser-runtime-in-node';

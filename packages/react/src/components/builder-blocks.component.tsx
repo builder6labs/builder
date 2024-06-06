@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React from 'react';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { BuilderBlock } from './builder-block.component';
 // TODO: fetch these for user and send them with same response like graphql
 import { Size } from '../constants/device-sizes.constant';
@@ -132,7 +132,7 @@ export class BuilderBlocks extends React.Component<BuilderBlocksProps, BuilderBl
         {(blocks &&
           Array.isArray(blocks) &&
           (blocks as any[]).map((block, index) =>
-            block && block['@type'] === '@builder.io/sdk:Element' ? (
+            block && block['@type'] === '@builder6/sdk:Element' ? (
               <BuilderBlock
                 key={block.id}
                 block={block}

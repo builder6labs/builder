@@ -5,7 +5,7 @@
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { render } from '@testing-library/react';
-import { Builder, builder } from '@builder.io/sdk';
+import { Builder, builder } from '@builder6/sdk';
 import { BuilderPage } from '../src/builder-react';
 import { el, block } from './functions/render-block';
 import * as reactTestRenderer from 'react-test-renderer';
@@ -225,7 +225,7 @@ describe('Builder Pixel', () => {
           data: {
             blocks: [
               {
-                '@type': '@builder.io/sdk:Element',
+                '@type': '@builder6/sdk:Element',
                 '@version': 2,
                 id: 'builder-270035a08d734ae88ea177daff3595c0',
                 component: {

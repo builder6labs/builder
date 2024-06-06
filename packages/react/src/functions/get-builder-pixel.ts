@@ -1,9 +1,9 @@
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 
 export function getBuilderPixel(apiKey: string): BuilderElement {
   return {
     id: 'builder-pixel-' + Math.random().toString(36).split('.')[1],
-    '@type': '@builder.io/sdk:Element',
+    '@type': '@builder6/sdk:Element',
     tagName: 'img',
     properties: {
       role: 'presentation',

@@ -1,4 +1,4 @@
-import { Builder, Component } from '@builder.io/sdk';
+import { Builder, Component } from '@builder6/sdk';
 
 interface ReactComponent extends Component {}
 

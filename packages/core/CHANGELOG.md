@@ -1,4 +1,4 @@
-# @builder.io/sdk
+# @builder6/sdk
 
 ## 2.2.3
 
