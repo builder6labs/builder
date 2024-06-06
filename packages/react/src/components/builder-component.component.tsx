@@ -690,13 +690,19 @@ export class BuilderComponent extends React.Component<
     }
     if (shouldHydrate && element) {
       // TODO: maybe hydrate again. Maybe...
-      const val = ReactDOM.render(
-        <BuilderComponent {...props} />,
-        useEl,
-        (useEl as any).builderRootRef
-      );
-      (useEl as any).builderRootRef = val;
-      return val;
+      try {
+
+        const val = ReactDOM.render(
+          <BuilderComponent {...props} />,
+          useEl,
+          (useEl as any).builderRootRef
+        );
+        (useEl as any).builderRootRef = val;
+        return val;
+
+      } catch(error) {
+        console.log(error, props, element)
+      }
     }
     const val = ReactDOM.render(
       <BuilderComponent {...props} />,

@@ -3,7 +3,7 @@ import { BuilderElement } from '@builder6/sdk';
 export function getBuilderPixel(apiKey: string): BuilderElement {
   return {
     id: 'builder-pixel-' + Math.random().toString(36).split('.')[1],
-    '@type': '@builder6/sdk:Element',
+    '@type': '@builder.io/sdk:Element',
     tagName: 'img',
     properties: {
       role: 'presentation',

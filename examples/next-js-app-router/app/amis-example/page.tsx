@@ -31,82 +31,71 @@ export default async function Page(props: PageProps) {
                         "meta": {
                             "previousId": "builder-b030b5cf048f4f6d8f255ea635c6b06a"
                         },
-                        "children": [
-                            {
-                                "@type": "@builder6/sdk:Element",
-                                "@version": 2,
-                                "id": "builder-14c891de55284f9985a73fc71400632d",
-                                "meta": {
-                                    "previousId": "builder-ba8c0621a4db4f9a8b47e693132ce810"
-                                },
-                                "component": {
-                                    "name": "Core:Amis",
-                                    "options": {
-                                        "schema": {
-                                          "type": "page",
-                                          "title": "Welcome to Steedos",
-                                          "body":  [
-                                            {
-                                              "id": "u:28f76ca888bb",
-                                              "type": "form",
-                                              "title": "表单",
-                                              "mode": "horizontal",
-                                              "dsType": "api",
-                                              "feat": "Insert",
-                                              "body": [
-                                                {
-                                                  "type": "input-text",
-                                                  "label": "文本",
-                                                  "name": "text",
-                                                  "id": "u:5af483118e92"
-                                                }
-                                              ],
+                        "component": {
+                            "name": "Core:Amis",
+                            "options": {
+                                "schema": {
+                                  "type": "page",
+                                  "title": "Welcome to Steedos",
+                                  "body":  [
+                                    {
+                                      "id": "u:28f76ca888bb",
+                                      "type": "form",
+                                      "title": "表单",
+                                      "mode": "horizontal",
+                                      "dsType": "api",
+                                      "feat": "Insert",
+                                      "body": [
+                                        {
+                                          "type": "input-text",
+                                          "label": "文本",
+                                          "name": "text",
+                                          "id": "u:5af483118e92"
+                                        }
+                                      ],
+                                      "actions": [
+                                        {
+                                          "type": "button",
+                                          "label": "提交",
+                                          "onEvent": {
+                                            "click": {
                                               "actions": [
                                                 {
-                                                  "type": "button",
-                                                  "label": "提交",
-                                                  "onEvent": {
-                                                    "click": {
-                                                      "actions": [
-                                                        {
-                                                          "actionType": "submit",
-                                                          "componentId": "u:28f76ca888bb"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "level": "primary",
-                                                  "id": "u:170b29f61a39"
+                                                  "actionType": "submit",
+                                                  "componentId": "u:28f76ca888bb"
                                                 }
-                                              ],
-                                              "resetAfterSubmit": true
+                                              ]
                                             }
-                                          ],
-                                          "regions": [
-                                            "body",
-                                            "header",
-                                            "toolbar",
-                                            "aside"
-                                          ],
-                                          "id": "u:2275f3beaa71",
-                                          "asideResizor": false,
-                                          "pullRefresh": {
-                                            "disabled": true
-                                          }
-                                        },
-                                        "data": {
-                                          "objectName": "space_users",
-                                          "recordId": "",
-                                          "initialValues": {},
-                                          "appId": "builder",
-                                          "title": "",
-                                          "context": {}
-                                        },
+                                          },
+                                          "level": "primary",
+                                          "id": "u:170b29f61a39"
+                                        }
+                                      ],
+                                      "resetAfterSubmit": true
                                     }
+                                  ],
+                                  "regions": [
+                                    "body",
+                                    "header",
+                                    "toolbar",
+                                    "aside"
+                                  ],
+                                  "id": "u:2275f3beaa71",
+                                  "asideResizor": false,
+                                  "pullRefresh": {
+                                    "disabled": true
+                                  }
                                 },
-                               
+                                "data": {
+                                  "objectName": "space_users",
+                                  "recordId": "",
+                                  "initialValues": {},
+                                  "appId": "builder",
+                                  "title": "",
+                                  "context": {}
+                                },
                             }
-                        ]
+                        },
                     }
                 ],
                 "url": "/",

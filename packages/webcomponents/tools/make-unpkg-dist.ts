@@ -3,7 +3,7 @@ const pkg = require('../package.json');
 
 async function main() {
   const [sjs /*systemMain*/] = await Promise.all([
-    readFileAsync('./node_modules/systemjs/dist/s.min.js', 'utf8'),
+    readFileAsync('../../../node_modules/systemjs/dist/s.min.js', 'utf8'),
     // readFileAsync('./dist/system/builder-webcomponents.js', 'utf8')
   ]);
   // TODO: bootstrap script goes here... hmmm...

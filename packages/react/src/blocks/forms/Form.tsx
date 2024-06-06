@@ -451,7 +451,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder6/sdk:Element',
+          '@type': '@builder.io/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -485,7 +485,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder6/sdk:Element',
+          '@type': '@builder.io/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -510,7 +510,7 @@ export const Form = withBuilder(FormComponent, {
       hideFromUI: true,
       defaultValue: [
         {
-          '@type': '@builder6/sdk:Element',
+          '@type': '@builder.io/sdk:Element',
           responsiveStyles: {
             large: {
               marginTop: '10px',
@@ -547,7 +547,7 @@ export const Form = withBuilder(FormComponent, {
   canHaveChildren: true,
   defaultChildren: [
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -561,7 +561,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -576,7 +576,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -590,7 +590,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',
@@ -605,7 +605,7 @@ export const Form = withBuilder(FormComponent, {
       },
     },
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           marginTop: '10px',

@@ -5,7 +5,7 @@ import { BuilderBlock } from '../components/builder-block.component';
 
 const isBuilderElement = (item: unknown): item is BuilderElement => {
   return Boolean(
-    typeof item === 'object' && item && (item as any)?.['@type'] === '@builder6/sdk:Element'
+    typeof item === 'object' && item && (item as any)?.['@type'] === '@builder.io/sdk:Element'
   );
 };
 
@@ -25,7 +25,7 @@ const isBuilderElement = (item: unknown): item is BuilderElement => {
  *      name: 'MyButton',
  *      defaultChildren: [
  *        {
- *          '@type': '@builder6/sdk:Element'
+ *          '@type': '@builder.io/sdk:Element'
  *        }
  *      ]
  *    })

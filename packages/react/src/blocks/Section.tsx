@@ -139,7 +139,7 @@ export const Section = withBuilder(SectionComponent, {
 
   defaultChildren: [
     {
-      '@type': '@builder6/sdk:Element',
+      '@type': '@builder.io/sdk:Element',
       responsiveStyles: {
         large: {
           textAlign: 'center',

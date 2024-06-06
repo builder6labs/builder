@@ -132,7 +132,7 @@ export class BuilderBlocks extends React.Component<BuilderBlocksProps, BuilderBl
         {(blocks &&
           Array.isArray(blocks) &&
           (blocks as any[]).map((block, index) =>
-            block && block['@type'] === '@builder6/sdk:Element' ? (
+            block && block['@type'] === '@builder.io/sdk:Element' ? (
               <BuilderBlock
                 key={block.id}
                 block={block}

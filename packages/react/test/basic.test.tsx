@@ -225,7 +225,7 @@ describe('Builder Pixel', () => {
           data: {
             blocks: [
               {
-                '@type': '@builder6/sdk:Element',
+                '@type': '@builder.io/sdk:Element',
                 '@version': 2,
                 id: 'builder-270035a08d734ae88ea177daff3595c0',
                 component: {

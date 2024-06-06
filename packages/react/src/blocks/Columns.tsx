@@ -12,7 +12,7 @@ const DEFAULT_ASPECT_RATIO = 0.7004048582995948;
 
 const defaultBlocks: BuilderElement[] = [
   {
-    '@type': '@builder6/sdk:Element',
+    '@type': '@builder.io/sdk:Element',
     responsiveStyles: {
       large: {
         display: 'flex',
@@ -41,7 +41,7 @@ const defaultBlocks: BuilderElement[] = [
     },
   },
   {
-    '@type': '@builder6/sdk:Element',
+    '@type': '@builder.io/sdk:Element',
     responsiveStyles: {
       large: {
         display: 'flex',
