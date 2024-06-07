@@ -16,11 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <script src="https://unpkg.com/amis@6.5.0/sdk/sdk.js" />
-        <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/antd.css" />
-        <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/helper.css" />
-        <link rel="stylesheet" href="https://unpkg.com/amis@6.5.0/sdk/iconfont.css" />        
+      <head>   
       </head>
       <body className={inter.className}>{children}</body>
     </html>

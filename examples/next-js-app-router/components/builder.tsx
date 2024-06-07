@@ -18,8 +18,6 @@ export function RenderBuilderContent({ content }: BuilderPageProps) {
     return <BuilderComponent 
       content={content} 
       model="page" 
-      context={{"hello": "context"}}
-      data={{"data": "context"}}
     />;
   }
 

@@ -61,11 +61,11 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, {}> {
     }
   }
 
-  componentWillUnmount() {
-    if (this.amisScoped) {
-      this.amisScoped.unmount();
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.amisScoped) {
+  //     this.amisScoped.unmount();
+  //   }
+  // }
 
   render() {
     return <div ref={this.ref}></div>;
