@@ -161,8 +161,8 @@ function find<T = any>(target: T[], callback: (item: T, index: number, list: T[]
   }
 }
 
-const sessionStorageKey = 'builderSessionId';
-const localStorageKey = 'builderVisitorId';
+const sessionStorageKey = 'builder6SessionId';
+const localStorageKey = 'builder6VisitorId';
 
 export const isBrowser = typeof window !== 'undefined' && !isReactNative;
 export const isIframe = isBrowser && window.top !== window.self;
@@ -922,7 +922,7 @@ export class Builder {
         },
       };
       try {
-        parent.postMessage(message, '*');
+        window.parent?.postMessage(message, '*');
         if (parent !== window) {
           window.postMessage(message, '*');
         }
