@@ -10,3 +10,9 @@ compiled
 .rpt2_cache
 docs
 .history
+/src
+/tools
+/test
+/scripts
+/docs
+/examples
