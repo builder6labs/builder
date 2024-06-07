@@ -1,6 +1,6 @@
 {
   "name": "@builder6/react",
-  "version": "3.2.9",
+  "version": "3.2.11",
   "description": "",
   "keywords": [],
   "main": "dist/builder-react.cjs.js",
@@ -124,7 +124,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@builder6/sdk": "^2.2.3",
+    "@builder6/sdk": "^2.2.4",
     "@emotion/core": "^10.0.17",
     "hash-sum": "^2.0.0",
     "isolated-vm": "^4.5.0",
