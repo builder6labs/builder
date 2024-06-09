@@ -1005,14 +1005,19 @@ export class BuilderComponent extends React.Component<
       this.externalState &&
       size(this.externalState) &&
       hash(this.externalState);
-    let key = Builder.isEditing ? this.name : this.props.entry;
+
+    // @zhuangjianguo 
+    // let key = Builder.isEditing ? this.name : this.props.entry;
+    let key = this.name;
+    
     if (key && !Builder.isEditing && dataString && dataString.length < 300) {
       key += ':' + dataString;
     }
 
     const WrapComponent = this.props.dataOnly ? React.Fragment : 'div';
 
-    const contentId = this.useContent?.id;
+    // @zhuangjianguo
+    const contentId = this.useContent?.id || this.props.entry;
 
     return (
       // TODO: data attributes for model, id, etc?
@@ -1031,7 +1036,7 @@ export class BuilderComponent extends React.Component<
         }}
         className={`builder-component ${contentId ? `builder-component-${contentId}` : ''}`}
         data-name={this.name}
-        data-source="Rendered by Builder.io"
+        data-source="Rendered by builder6.com"
         key={this.state.key}
         ref={ref => (this.ref = ref)}
       >
@@ -1476,9 +1481,9 @@ export class BuilderComponent extends React.Component<
                 continue;
               }
               this.lastHttpRequests[key] = finalUrl;
-              const builderModelRe = /builder\.io\/api\/v2\/([^\/\?]+)/i;
-              const builderModelMatch = url.match(builderModelRe);
-              const model = builderModelMatch && builderModelMatch[1];
+              // const builderModelRe = /builder\.io\/api\/v2\/([^\/\?]+)/i;
+              // const builderModelMatch = url.match(builderModelRe);
+              // const model = builderModelMatch && builderModelMatch[1];
               this.handleRequest(key, finalUrl);
               const currentSubscription = this.httpSubscriptionPerKey[key];
               if (currentSubscription) {
