@@ -475,7 +475,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@builder6/react@workspace:packages/react"
   dependencies:
-    "@builder6/sdk": ^2.2.4
+    "@builder6/sdk": ^2.2.5
     "@emotion/core": ^10.0.17
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^14.0.0
@@ -594,8 +594,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@builder6/webcomponents@workspace:packages/webcomponents"
   dependencies:
-    "@builder6/react": ^3.2.7
-    "@builder6/sdk": ^2.2.3
+    "@builder6/react": ^3.2.12
+    "@builder6/sdk": ^2.2.5
     "@commitlint/cli": ^8.2.0
     "@commitlint/config-conventional": ^8.2.0
     "@emotion/core": ^10.0.22
