@@ -639,6 +639,16 @@ export interface Input {
   model?: string;
 
   meta?: Record<string, any>;
+
+  /* 
+    Additional configs for plugins:
+    plugins: {
+      amis: {
+        type: 'hello-world'
+      }
+    }
+  */
+  plugins?: object;
 }
 
 /**
@@ -800,6 +810,16 @@ export interface Component {
    * for more information on permissions in builder check https://www.builder6.com/c/docs/guides/roles-and-permissions
    */
   requiredPermissions?: Array<Permission>;
+
+  /* 
+    Additional configs for plugins:
+    plugins: {
+      amis: {
+        type: 'hello-world'
+      }
+    }
+  */
+  plugins?: object;
 }
 
 type Permission = 'read' | 'publish' | 'editCode' | 'editDesigns' | 'admin' | 'create';
