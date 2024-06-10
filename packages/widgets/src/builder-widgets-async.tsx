@@ -1,5 +1,11 @@
+/*
+ * @Author: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @Date: 2024-06-05 17:44:19
+ * @LastEditors: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @LastEditTime: 2024-06-10 09:53:06
+ */
 import dynamic from 'next/dynamic';
-import { Builder } from '@builder.io/react';
+import { Builder } from '@builder6/react';
 
 import { carouselConfig } from './components/Carousel.config';
 import { tabsConfig } from './components/Tabs.config';

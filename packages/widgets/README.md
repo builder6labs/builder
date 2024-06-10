@@ -7,13 +7,13 @@ Adds widgets for Builder.io editing, such as carousels, tabs, accordions, etc.
 First, install the package:
 
 ```bash
-npm install @builder.io/widgets
+npm install @builder6/widgets
 ```
 
 When using the React SDK, import:
 
 ```ts
-import '@builder.io/widgets';
+import '@builder6/widgets';
 ```
 
 When you import widgets wherever you render a `<BuilderComponent ... />`, the widgets register and are available in the Visual Editor and when rendering (including server-side).
@@ -24,14 +24,14 @@ For a working example, check out [Builder's Next.js example](/examples/next-js-s
 
 ## Lazy Loading
 
-Instead of importing the root `@builder.io/widgets`, which synchronously registers all components, you can asynchronously import only the widgets used in your Builder content.
+Instead of importing the root `@builder6/widgets`, which synchronously registers all components, you can asynchronously import only the widgets used in your Builder content.
 
 ### With Next.js
 
 To dynamically import widgets in Next.js, use the following import statement:
 
 ```
-import '@builder.io/widgets/dist/lib/builder-widgets-async'
+import '@builder6/widgets/dist/lib/builder-widgets-async'
 ```
 
 ### Frameworks other than Next.js
@@ -39,13 +39,13 @@ import '@builder.io/widgets/dist/lib/builder-widgets-async'
 Lazy load the widget components explicitly by registering them with your lazy loading library of choice; for example, [Loadable](https://github.com/jamiebuilds/react-loadable), and only the specified components will load when used in content, as needed.
 
 ```ts
-import { Builder } from '@builder.io/react';
-import { accordionConfig } from '@builder.io/widgets/dist/lib/components/Accordion.config';
+import { Builder } from '@builder6/react';
+import { accordionConfig } from '@builder6/widgets/dist/lib/components/Accordion.config';
 import loadable from '@loadable/component';
 
 Builder.registerComponent(
   loadable(() =>
-    import('@builder.io/widgets/dist/lib/components/Accordion').then(mod => mod.AccordionComponent)
+    import('@builder6/widgets/dist/lib/components/Accordion').then(mod => mod.AccordionComponent)
   ),
   accordionConfig
 );
@@ -59,4 +59,4 @@ For more detail, read the official Builder widgets documentation, [Using Widgets
 
 ## Help and troubleshooting
 
-If you have questions or feedback, contact us at <help@builder.io>. We are happy to help!
+If you have questions or feedback, contact us at <help@builder6>. We are happy to help!

@@ -17,6 +17,7 @@
     "packages/core",
     "packages/react",
     "packages/webcomponents",
+    "packages/widgets",
     "examples/next-js-app-router"
   ],
   "devDependencies": {

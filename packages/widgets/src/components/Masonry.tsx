@@ -6,7 +6,7 @@ import {
   BuilderElement,
   BuilderStoreContext,
   stringToFunction,
-} from '@builder.io/react';
+} from '@builder6/react';
 import * as React from 'react';
 import Masonry from 'react-masonry-component';
 
@@ -86,6 +86,7 @@ export class MasonryComponent extends React.Component<MasonryProps> {
               <BuilderStoreContext.Consumer>
                 {state => (
                   <div ref={ref => (this.divRef = ref)} className="builder-masonry">
+                    {/* @ts-ignore */}
                     <Masonry
                       onLayoutComplete={() => {
                         if (!this.state.layoutComplete) {

@@ -5,7 +5,7 @@ import {
   BuilderElement,
   BuilderStoreContext,
   stringToFunction,
-} from '@builder.io/react';
+} from '@builder6/react';
 import * as React from 'react';
 
 interface AccordionProps {

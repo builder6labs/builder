@@ -13,6 +13,7 @@
     "@builder.io/sdk": "^2.2.3",
     "@builder6/react": "^3.2.7",
     "@builder6/sdk": "^2.2.3",
+    "@builder6/widgets": "workspace:^",
     "@types/node": "20.1.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",

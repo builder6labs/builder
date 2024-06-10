@@ -6,7 +6,7 @@ import {
   BuilderElement,
   BuilderStoreContext,
   stringToFunction,
-} from '@builder.io/react';
+} from '@builder6/react';
 import * as React from 'react';
 import Slider, { ResponsiveObject, Settings } from 'react-slick';
 

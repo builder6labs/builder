@@ -1,4 +1,4 @@
-import { BuilderElement } from '@builder.io/react';
+import { BuilderElement } from '@builder6/react';
 
 const defaultElement: BuilderElement = {
   '@type': '@builder.io/sdk:Element',

@@ -1,3 +1,9 @@
+/*
+ * @Author: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @Date: 2024-06-05 17:44:19
+ * @LastEditors: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @LastEditTime: 2024-06-10 10:09:37
+ */
 import * as React from 'react';
 import Loadable from 'react-loadable';
 
@@ -56,5 +62,5 @@ const Loading = () => (
 //   })
 
 function reload(): any {
-  location.reload(true);
+  location.reload();
 }
