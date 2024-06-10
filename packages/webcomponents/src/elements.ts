@@ -2,7 +2,7 @@ import { Builder, builder } from '@builder6/react';
 const importReact = () => import('@builder6/react');
 const importShopify = () => {}; //import('@builder.io/shopify/react');
 const importShopifyJs = () => {}; //import('@builder.io/shopify/js');
-const importWidgets = () => {}; //import('@builder.io/widgets');
+const importWidgets = () => import('@builder6/widgets');
 
 Builder.isStatic = true;
 
@@ -21,7 +21,7 @@ function wrapHistoryPropertyWithCustomEvent(property: 'pushState' | 'replaceStat
   try {
     const anyHistory = history;
     const originalFunction = anyHistory[property];
-    anyHistory[property] = function (this: History) {
+    anyHistory[property] = function(this: History) {
       let rv = originalFunction.apply(this, arguments as any);
       let event = new CustomEvent(property, {
         detail: {
@@ -784,8 +784,7 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
   customElements.define('builder-init', BuilderInit);
 }
 
-type BuilderBlocksProps =
-  import('@builder6/react/dist/types/src/components/builder-blocks.component').BuilderBlocksProps;
+type BuilderBlocksProps = import('@builder6/react/dist/types/src/components/builder-blocks.component').BuilderBlocksProps;
 
 if (Builder.isBrowser && !customElements.get('builder-blocks-slot')) {
   class BuilderBlocksSlot extends HTMLElement {

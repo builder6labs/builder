@@ -148,6 +148,7 @@
   "dependencies": {
     "@builder6/react": "^3.2.12",
     "@builder6/sdk": "^2.2.5",
+    "@builder6/widgets": "1.2.24",
     "@emotion/core": "^10.0.22",
     "@types/css-font-loading-module": "0.0.4",
     "liquidjs": "^9.7.0",

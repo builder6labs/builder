@@ -43,7 +43,7 @@ const defaultElement = {
 };
 
 export const tabsConfig: any = {
-  name: 'Builder: Tabs',
+  name: 'Builder:Tabs',
   inputs: [
     {
       name: 'tabs',
