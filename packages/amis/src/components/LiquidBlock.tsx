@@ -142,7 +142,7 @@ export const LiquidBlock = ({
 };
 
 Builder.registerComponent(LiquidBlock, {
-  name: 'Builder6:LiquidBlock',
+  name: 'Builder6:Liquid',
   hideFromInsertMenu: true,
   inputs: [
     {

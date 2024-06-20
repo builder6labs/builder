@@ -171,7 +171,7 @@ class AmisRender extends React.Component<PropsWithChildren<AmisProps>, AmisCompo
 }
 
 export const Amis = withBuilder(AmisRender, {
-  name: 'Amis:Render',
+  name: 'Builder6:Amis',
   static: true,
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2F682efef23ace49afac61748dd305c70a',
