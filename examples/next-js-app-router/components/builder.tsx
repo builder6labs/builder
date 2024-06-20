@@ -18,7 +18,6 @@ builder.init('666171e7481f3605ac061b50');
 Builder.overrideHost = "https://cdn.builder6.com";
 
 export function RenderBuilderContent({ content, data }: BuilderPageProps) {
-  console.log(`BuilderComponent====?`, content, data, BuilderComponent)
   if (content) {
     return <BuilderComponent 
       content={content} 
