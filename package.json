@@ -35,7 +35,7 @@
     "url": "https://github.com/BuilderIO/builder"
   },
   "scripts": {
-    "build": "npx nx run-many -p @builder6/sdk @builder6/react @builder6/webcomponents -t build",
+    "build": "npx nx run-many -p @builder6/sdk @builder6/react @builder6/webcomponents -t build --skip-nx-cache",
     "ci:lint": "npx prettier@2.8.8 --check '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npx prettier@2.8.8 --write '**/*.{js,jsx,ts,tsx}'",
     "update-npm-dependency": "zx ./scripts/update-npm-dependency.mjs",

@@ -128,8 +128,6 @@ class AmisRender extends React.Component<PropsWithChildren<AmisProps>, AmisCompo
       ...builderState.context,
     };
 
-    console.log('initializeAmis=-=====>', data)
-
     this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, { data }, context);
     
   }
