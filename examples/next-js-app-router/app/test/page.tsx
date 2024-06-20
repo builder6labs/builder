@@ -19,31 +19,11 @@ interface PageProps {
 }
 
 export default async function Page(props: PageProps) {
-  const pageId = (props?.params?.page?.join('/') || '');
-  console.log(pageId)
-  const content = await builder
-    .get('page', {
-      entry: pageId,
-      query: {
-        data: {
-          myCustomField: 'someValue',
-          someNumber: { $ne: 2 }
-        }
-      },
-      userAttributes: {
-        urlPath: '/' + (props?.params?.page?.join('/') || ''),
-      },
-      prerender: false,
-    })
-    .toPromise();
-
-  console.log(content)
+  
+  const content = {}
 
   return (
     <>
-      <Head>
-        <title>{content?.data.title}</title>
-      </Head>
       {/* Render the Builder page */}
       <RenderBuilderContent content={content} />
     </>

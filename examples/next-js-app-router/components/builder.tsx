@@ -17,18 +17,12 @@ interface BuilderPageProps {
 builder.init('666171e7481f3605ac061b50');
 Builder.overrideHost = "https://cdn.builder6.com";
 
-export function RenderBuilderContent({ content, entry }: BuilderPageProps) {
+export function RenderBuilderContent({ content }: BuilderPageProps) {
   (window as any)['Builder6'] = Builder;
-  const isPreviewing = useIsPreviewing();
 
-  if (content || isPreviewing) {
+  if (content) {
     return <BuilderComponent 
       content={content} 
-      model="page" 
-    />;
-  } else if (entry) {
-    return <BuilderComponent 
-      entry={entry}
       model="page" 
     />;
   }
