@@ -1,8 +1,12 @@
 {
   "name": "@builder6/widgets",
-  "version": "1.2.24",
+  "version": "1.2.25",
   "description": "",
   "keywords": [],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/builder-widgets.cjs.js",
   "module": "dist/builder-widgets.es5.js",
   "unpkg": "dist/builder-widgets.browser.js",
