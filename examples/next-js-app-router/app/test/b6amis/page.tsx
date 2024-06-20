@@ -38,7 +38,7 @@ export default async function Page(props: PageProps) {
                             "type": "page",
                             "body": {
                                 "type": "tpl",
-                                "tpl": "[b6amis] hi, ${mobile}"
+                                "tpl": "[Builder6:Amis] hi, ${mobile}"
                             }
                         },
                         "data": {}
