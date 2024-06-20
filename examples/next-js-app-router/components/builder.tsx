@@ -10,18 +10,19 @@ import DefaultErrorPage from 'next/error';
 
 interface BuilderPageProps {
   content: any;
-  entry: string;
+  data: any;
 }
 
 // Replace with your Public API Key
 builder.init('666171e7481f3605ac061b50');
 Builder.overrideHost = "https://cdn.builder6.com";
 
-export function RenderBuilderContent({ content }: BuilderPageProps) {
-
+export function RenderBuilderContent({ content, data }: BuilderPageProps) {
+  console.log(`BuilderComponent====?`, content, data, BuilderComponent)
   if (content) {
     return <BuilderComponent 
       content={content} 
+      data={data}
       model="page" 
     />;
   }

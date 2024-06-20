@@ -130,8 +130,8 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
       ...this.props.context,
       ...builderState.context,
     };
-
-    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, data, context);
+    console.log('=====initializeAmis======>', data)
+    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, { data }, context);
     
   }
 
