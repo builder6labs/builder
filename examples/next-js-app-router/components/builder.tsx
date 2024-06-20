@@ -6,7 +6,7 @@
 'use client';
 import { BuilderComponent, useIsPreviewing, builder, Builder } from '@builder6/react';
 import DefaultErrorPage from 'next/error';
-import '@builder6/widgets';
+// import '@builder6/widgets';
 
 interface BuilderPageProps {
   content: any;
@@ -18,7 +18,6 @@ builder.init('666171e7481f3605ac061b50');
 Builder.overrideHost = "https://cdn.builder6.com";
 
 export function RenderBuilderContent({ content }: BuilderPageProps) {
-  (window as any)['Builder6'] = Builder;
 
   if (content) {
     return <BuilderComponent 

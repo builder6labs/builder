@@ -7,7 +7,7 @@ import React from 'react';
 import { builder, Builder } from '@builder6/sdk';
 import Head from 'next/head';
 import { RenderBuilderContent } from '@/components/builder';
-import '@builder6/widgets';
+// import '@builder6/widgets';
 
 // Replace with your Public API Key
 builder.init('YJIGb4i01jvw0SRdL5Bt');
