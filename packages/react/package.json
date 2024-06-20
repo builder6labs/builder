@@ -105,7 +105,7 @@
     "semantic-release": "^19.0.3",
     "ts-jest": "^28.0.6",
     "ts-node": "^6.0.0",
-    "tslib": "^2.4.0",
+    "tslib": "^2.6.3",
     "tslint": "^5.8.0",
     "tslint-config-prettier": "^1.1.0",
     "tslint-config-standard": "^7.0.0",

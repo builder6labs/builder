@@ -155,4 +155,11 @@ Builder.registerComponent(LiquidBlock, {
       type: 'LiquidBlockOptions',
     },
   ],
+  plugins: {
+    amis: {
+      type: 'builder6-liquid',
+      autoVar: true,
+      icon: "fa-fw fa fa-list-alt"
+    }
+  }
 });
