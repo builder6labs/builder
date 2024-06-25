@@ -126,7 +126,7 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>,
     const context = {
       theme: amisTheme,
       requestAdaptor: (config: any)=>{
-        if(config.allowCredentials == false){
+        if(config.allowCredentials != true){
           config.withCredentials = false;
           delete config.allowCredentials
         }
