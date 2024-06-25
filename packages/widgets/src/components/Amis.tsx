@@ -1,6 +1,6 @@
 /*
- * @LastEditTime: 2024-06-06 22:10:52
- * @LastEditors: liaodaxue
+ * @LastEditTime: 2024-06-25 16:12:37
+ * @LastEditors: baozhoutao@steedos.com
  * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 'use client';
@@ -125,6 +125,13 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>,
     };
     const context = {
       theme: amisTheme,
+      requestAdaptor: (config: any)=>{
+        if(config.allowCredentials == false){
+          config.withCredentials = false;
+          delete config.allowCredentials
+        }
+        return config;
+      },
       ...this.props.context,
       ...builderState.context,
     };
