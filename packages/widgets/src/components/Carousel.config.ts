@@ -201,4 +201,11 @@ export const carouselConfig: any = {
       ],
     },
   ],
+  plugins: {
+    amis: {
+      type: 'builder-carousel',
+      usage: 'renderer',
+      autoVar: true,
+    }
+  }
 };

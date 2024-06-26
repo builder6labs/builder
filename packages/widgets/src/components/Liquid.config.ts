@@ -19,6 +19,7 @@ export const liquidConfig: any = {
   plugins: {
     amis: {
       type: 'builder6-liquid',
+      usage: 'renderer',
       autoVar: true,
       icon: "fa-fw fa fa-list-alt"
     }

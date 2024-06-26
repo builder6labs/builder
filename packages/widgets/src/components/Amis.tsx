@@ -5,7 +5,7 @@
  */
 'use client';
 import React, { PropsWithChildren } from 'react';
-import { BuilderElement, Builder } from '@builder6/sdk';
+import { BuilderElement, Builder } from '@builder6/react';
 
 
 interface AmisProps {
@@ -22,6 +22,7 @@ interface AmisComponentState {
 
 export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisComponentState> {
   amis: any = null;
+  amisLib: any = null;
   ref: any = null;
   amisScoped: any = null;
 
@@ -112,11 +113,16 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>,
 
   initializeAmis() {
 
-    this.amis = Builder.isBrowser && (window as any)['amisRequire'] && (window as any)['amisRequire']('amis/embed');
+    if (Builder.isServer){
+      return
+    }
+    this.amis = (window as any)['amisRequire'] && (window as any)['amisRequire']('amis/embed');
+    this.amisLib = (window as any)['amisRequire'] && (window as any)['amisRequire']('amis');
     if (!this.amis) {
       console.error('Amis is not loaded');
       return;
     }
+    this.registerComponents();
     const amisTheme = Builder.settings["amisTheme"] || 'antd';
     const { builderState } = this.props;
     const data = {
@@ -139,6 +145,16 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>,
     
   }
 
+  registerComponents() {
+
+    Builder.components.forEach((component:any) => {
+      if (component.plugins && component.plugins.amis) {
+          console.log(`Register amis component: ${component.plugins.amis.type}`, component.plugins.amis);
+          //注册自定义组件，请参考后续对工作原理的介绍
+          this.amisLib.Renderer(component.plugins.amis)(component.class);
+      }
+    });
+  }
 
   constructor(props: any) {
     // console.log('AmisComponent', props);

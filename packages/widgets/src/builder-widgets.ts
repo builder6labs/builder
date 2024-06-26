@@ -23,5 +23,5 @@ Builder.registerComponent(CarouselComponent, carouselConfig);
 Builder.registerComponent(TabsComponent, tabsConfig);
 Builder.registerComponent(AccordionComponent, accordionConfig);
 Builder.registerComponent(MasonryComponent, masonryConfig);
-Builder.registerComponent(AmisComponent, amisConfig)
-Builder.registerComponent(LiquidComponent, liquidConfig)
+Builder.registerComponent(AmisComponent, amisConfig);
+Builder.registerComponent(LiquidComponent, liquidConfig);
