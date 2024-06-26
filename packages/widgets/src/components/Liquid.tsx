@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Liquid } from 'liquidjs';
 
 interface LiquidTemplateProps {
@@ -21,8 +21,22 @@ export const LiquidComponent: React.FC<LiquidTemplateProps> = ({ template, data,
       setHtml(result);
     });
   }, [template, data]);
+  
+  const ref = useRef();
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  useEffect(() => {
+    if(html){
+      const node = document.createRange().createContextualFragment(html);
+      // 清空ref的子元素
+      while ((ref as any).current.firstChild) {
+        (ref as any).current.removeChild((ref as any).current.firstChild);
+      }
+      (ref as any).current.appendChild(node);
+    }
+  }, [html]);
+
+
+  return <div ref={ref as any}></div>;
 };
 
 // import React from 'react';
