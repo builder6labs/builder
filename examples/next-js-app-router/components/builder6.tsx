@@ -6,24 +6,23 @@
 'use client';
 import { BuilderComponent, useIsPreviewing, builder, Builder } from '@builder6/react';
 import DefaultErrorPage from 'next/error';
-// import '@builder6/widgets';
+import '@builder6/widgets';
 
 interface BuilderPageProps {
   content: any;
   data: any;
 }
 
-// Replace with your Public API Key
-builder.init('666171e7481f3605ac061b50');
-Builder.overrideHost = "https://cdn.builder6.com";
 
 export function RenderBuilderContent({ content, data }: BuilderPageProps) {
   if (content) {
-    return <BuilderComponent 
-      content={content} 
-      data={data}
-      model="page" 
-    />;
+    return (
+      <BuilderComponent 
+        content={content} 
+        data={data}
+        model="page" 
+      />
+    )
   }
 
   return <DefaultErrorPage statusCode={404} />;

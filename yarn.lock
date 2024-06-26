@@ -471,6 +471,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@builder6/builder6.js@npm:^0.12.2":
+  version: 0.12.2
+  resolution: "@builder6/builder6.js@npm:0.12.2"
+  dependencies:
+    "@types/node": ">=8.0.0 <15"
+    abort-controller: ^3.0.0
+    abortcontroller-polyfill: ^1.4.0
+    lodash: ^4.17.21
+    node-fetch: ^2.6.7
+  checksum: 061d955bead2434231f0a5d5959fc3c94ceb3144c4cff0ba889149d6e61293f9b5b868ee6e4ffe1677c3e79566202e0f5880118564b73d4e9a8eda579f8bca95
+  languageName: node
+  linkType: hard
+
 "@builder6/react@workspace:*, @builder6/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@builder6/react@workspace:packages/react"
@@ -596,7 +609,7 @@ __metadata:
   dependencies:
     "@builder6/react": ^3.2.12
     "@builder6/sdk": ^2.2.5
-    "@builder6/widgets": 1.2.24
+    "@builder6/widgets": ^1.2.24
     "@commitlint/cli": ^8.2.0
     "@commitlint/config-conventional": ^8.2.0
     "@emotion/core": ^10.0.22
@@ -664,7 +677,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@builder6/widgets@1.2.24, @builder6/widgets@workspace:^, @builder6/widgets@workspace:packages/widgets":
+"@builder6/widgets@^1.2.24, @builder6/widgets@workspace:^, @builder6/widgets@workspace:packages/widgets":
   version: 0.0.0-use.local
   resolution: "@builder6/widgets@workspace:packages/widgets"
   dependencies:
@@ -690,6 +703,7 @@ __metadata:
     husky: ^0.14.0
     jest: ^22.0.2
     lint-staged: ^7.0.0
+    liquidjs: 9.6.2
     lodash-es: ^4.17.10
     lodash.camelcase: ^4.3.0
     next: ^12.1.0
@@ -4134,6 +4148,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:>=8.0.0 <15, @types/node@npm:^14.0.1":
+  version: 14.18.63
+  resolution: "@types/node@npm:14.18.63"
+  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^10.17.13":
   version: 10.17.60
   resolution: "@types/node@npm:10.17.60"
@@ -4145,13 +4166,6 @@ __metadata:
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.0.1":
-  version: 14.18.63
-  resolution: "@types/node@npm:14.18.63"
-  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
   languageName: node
   linkType: hard
 
@@ -4655,6 +4669,22 @@ __metadata:
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
   checksum: 0e994ad2aa6575f94670d8a2149afe94465de9cedaaaac364e7fb43a40c3691c980ff74899f682f4ca58fa96b4cbd7421a015d3a6defe43a442117d7821a2f36
+  languageName: node
+  linkType: hard
+
+"abort-controller@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "abort-controller@npm:3.0.0"
+  dependencies:
+    event-target-shim: ^5.0.0
+  checksum: 170bdba9b47b7e65906a28c8ce4f38a7a369d78e2271706f020849c1bfe0ee2067d4261df8bbb66eb84f79208fd5b710df759d64191db58cfba7ce8ef9c54b75
+  languageName: node
+  linkType: hard
+
+"abortcontroller-polyfill@npm:^1.4.0":
+  version: 1.7.5
+  resolution: "abortcontroller-polyfill@npm:1.7.5"
+  checksum: daf4169f4228ae0e4f4dbcfa782e501b923667f2666b7c55bd3b7664e5d6b100e333a93371173985fdf21f65d7dfba15bdb2e6031bdc9e57e4ce0297147da3aa
   languageName: node
   linkType: hard
 
@@ -10402,6 +10432,13 @@ __metadata:
     stream-combiner: ~0.0.4
     through: ~2.3.1
   checksum: 80b467820b6daf824d9fb4345d2daf115a056e5c104463f2e98534e92d196a27f2df5ea2aa085624db26f4c45698905499e881d13bc7c01f7a13eac85be72a22
+  languageName: node
+  linkType: hard
+
+"event-target-shim@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "event-target-shim@npm:5.0.1"
+  checksum: 1ffe3bb22a6d51bdeb6bf6f7cf97d2ff4a74b017ad12284cc9e6a279e727dc30a5de6bb613e5596ff4dc3e517841339ad09a7eec44266eccb1aa201a30448166
   languageName: node
   linkType: hard
 
@@ -17160,6 +17197,16 @@ __metadata:
   bin:
     lint-staged: ./bin/lint-staged
   checksum: 06d6289ab84968b102c04f132d0f8dba023dc725ccd14e4c7cadd382876d5c5a28b710eea551901b1c1ccf8dce27d683a9b435e126e2e147b21c77f9fa21e932
+  languageName: node
+  linkType: hard
+
+"liquidjs@npm:9.6.2":
+  version: 9.6.2
+  resolution: "liquidjs@npm:9.6.2"
+  bin:
+    liquid: bin/liquid.js
+    liquidjs: bin/liquid.js
+  checksum: 41c61837712e43cd497f64bf20f76f2ffad6d1ccd38bb5b49e88eadffeb4af183fd059aca6b9700507a005390d92a8be64a1721a5f585985fecc53fd0928960f
   languageName: node
   linkType: hard
 
@@ -25860,8 +25907,9 @@ __metadata:
   dependencies:
     "@builder.io/react": ^3.2.7
     "@builder.io/sdk": ^2.2.3
-    "@builder6/react": ^3.2.7
-    "@builder6/sdk": ^2.2.3
+    "@builder6/builder6.js": ^0.12.2
+    "@builder6/react": "workspace:^"
+    "@builder6/sdk": "workspace:^"
     "@builder6/widgets": "workspace:^"
     "@types/node": 20.1.1
     "@types/react": 18.2.6

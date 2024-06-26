@@ -3,7 +3,6 @@
   "version": "1.2.26",
   "description": "",
   "keywords": [],
-  "private": false,
   "publishConfig": {
     "access": "public"
   },
