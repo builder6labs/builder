@@ -4,7 +4,7 @@
  * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 'use client';
-import { BuilderComponent, useIsPreviewing, builder, Builder } from '@builder6/react';
+import { BuilderComponent, builder, Builder } from '@builder6/react';
 import DefaultErrorPage from 'next/error';
 import '@builder6/widgets';
 
@@ -13,8 +13,13 @@ interface BuilderPageProps {
   data: any;
 }
 
+if (Builder.isBrowser) {
+  (window as any).builder = builder;
+  (window as any).Builder = Builder;
+}
 
 export function RenderBuilderContent({ content, data }: BuilderPageProps) {
+
   if (content) {
     return (
       <BuilderComponent 
