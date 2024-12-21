@@ -1,24 +1,19 @@
 {
   "name": "@builder6/react",
-  "version": "3.2.13",
+  "version": "3.2.17",
   "description": "",
   "keywords": [],
   "main": "dist/builder-react.cjs.js",
   "unpkg": "dist/builder-react.unpkg.js",
-  "module": "dist/builder-react.es5.js",
+  "module": "dist/builder-react.e5.js",
   "typings": "dist/types/src/builder-react.d.ts",
-  "author": "Steve Sewell <steve@builder.io>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BuilderIO/builder"
-  },
   "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
   },
   "tags": [
     "react",
-    "builder.io"
+    "builder6"
   ],
   "scripts": {
     "docs": "typedoc",

@@ -32,7 +32,7 @@ const umdOptions = {
   output: [
     {
       format: 'umd',
-      name: 'BuilderIO',
+      name: 'Builder6',
       file: 'dist/index.umd.js',
       sourcemap: true,
       amd: {

@@ -11,9 +11,9 @@ import { withBuilder } from '../functions/with-builder';
 import { BuilderStore } from '../store/builder-store';
 
 interface AmisProps {
-  context: object;
   schema: object;
   data: object;
+  env: object;
   builderState: BuilderStore;
   builderBlock: BuilderElement;
 }
@@ -24,132 +24,70 @@ interface AmisComponentState {
 
 class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisComponentState> {
   amis: any = null;
+  amisLib: any = null;
+
   ref: any = null;
   amisScoped: any = null;
 
-  firstLoad = true;
-
-  // componentWillUnmount() {
-  //   if (this.amisScoped) {
-  //     this.amisScoped.unmount();
-  //   }
-  // }
-
-  loadResources() {
-    if (Builder.isBrowser && window['amisRequire'] && window['amisRequire']('amis/embed')) {
-      this.setState({ isLoaded: true }, () => {
-        this.initializeAmis();
-      });
-      return;
-    }
-
-    const unpkgUrl = Builder.settings["unpkgUrl"] || 'https://unpkg.steedos.cn';
-    const amisVersion = Builder.settings["amisVersion"] || '6.5.0';
-    const amisTheme = Builder.settings["amisTheme"] || 'antd';
-
-    const scripts = [
-      { src: `${unpkgUrl}/amis@${amisVersion}/sdk/sdk.js`, type: "script" },
-    ];
-
-    const styles = [
-      { href: `${unpkgUrl}/amis@${amisVersion}/sdk/${amisTheme}.css`, type: "link" },
-      { href: `${unpkgUrl}/amis@${amisVersion}/sdk/helper.css`, type: "link" },
-      { href: `${unpkgUrl}/amis@${amisVersion}/sdk/iconfont.css`, type: "link" },
-    ];
-    let loadedScripts = 0;
-    let loadedStyles = 0;
-
-    const onLoad = () => {
-      loadedScripts++;
-      if (loadedScripts === scripts.length && loadedStyles === styles.length) {
-        this.setState({ isLoaded: true }, () => {
-          this.initializeAmis();
-        });
-      }
-    };
-
-    const onError = (src) => {
-      console.error(`Failed to load resource: ${src}`);
-    };
-
-    scripts.forEach(({ src }) => {
-      if (!document.querySelector(`script[src="${src}"]`)) {
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = onLoad;
-        script.onerror = () => onError(src);
-        document.head.appendChild(script);
-      } else {
-        loadedScripts++;
-      }
-    });
-
-    styles.forEach(({ href }) => {
-      if (!document.querySelector(`link[href="${href}"]`)) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        link.onload = () => {
-          loadedStyles++;
-          if (loadedScripts === scripts.length && loadedStyles === styles.length) {
-            this.setState({ isLoaded: true }, () => {
-              this.initializeAmis();
-            });
-          }
-        };
-        link.onerror = () => onError(href);
-        document.head.appendChild(link);
-      } else {
-        loadedStyles++;
-      }
-    });
-
-    if (loadedScripts === scripts.length && loadedStyles === styles.length) {
-      this.setState({ isLoaded: true }, () => {
-        this.initializeAmis();
-      });
+  componentWillUnmount() {
+    if (this.amisScoped) {
+      this.amisScoped.unmount();
     }
   }
 
+  constructor(props) {
 
-  initializeAmis() {
+    super(props);
+    this.ref = React.createRef<HTMLDivElement>();
+   
+  }
 
+
+  registerComponents() {
+
+    Builder.components.forEach((componentMeta:any) => {
+      const component = componentMeta.class
+
+      if (component && component.amis && component.amis.render && !component.amis.isRegisterd) {
+          console.log(`Register amis component: ${component.amis.render.type}`, component.amis.render);
+          component.amis.isRegisterd = true;
+          //注册自定义组件，请参考后续对工作原理的介绍
+          this.amisLib.Renderer(component.amis.render)(component);
+      }
+    });
+  }
+  
+  componentDidMount() {
+
+    if (Builder.isServer){
+      return
+    }
     this.amis = Builder.isBrowser && window['amisRequire'] && window['amisRequire']('amis/embed');
+    this.amisLib = (window as any)['amisRequire'] && (window as any)['amisRequire']('amis');
+
     if (!this.amis) {
       console.error('Amis is not loaded');
       return;
     }
-    const amisTheme = Builder.settings["amisTheme"] || 'antd';
+    this.registerComponents();
+
     const { builderState } = this.props;
     const data = {
       ...builderState.state,
       ...this.props.data,
     };
-    const context = {
-      theme: amisTheme,
-      ...this.props.context,
-      ...builderState.context,
+    const env = {
+      theme: 'antd',
+      requestAdaptor: (config: any)=>{
+        if(config.allowCredentials != true){
+          config.withCredentials = false;
+          delete config.allowCredentials
+        }
+        return config;
+      },
+      ...this.props.env,
     };
-    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, { data }, context);
-    
-  }
-
-
-  constructor(props) {
-    // console.log('AmisComponent', props);
-
-    super(props);
-    this.ref = React.createRef<HTMLDivElement>();
-   
-    this.state = {
-      isLoaded: false,
-    };
-    this.loadResources = this.loadResources.bind(this);
-    this.firstLoad = true;
-  }
-
-  componentDidMount() {
-    this.loadResources();
+    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, data, env);
   }
 
   componentDidUpdate(prevProps) {
@@ -166,7 +104,6 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
   render() {
     return (
       <div ref={this.ref}>
-        {!this.state.isLoaded && (<span>Loading...</span>)} 
       </div>
     );
   }
@@ -194,6 +131,13 @@ export const Amis = withBuilder(AmisComponent, {
       type: 'javascript',
       required: true,
       defaultValue: `{}`,
+      code: true,
+    },
+    {
+      name: 'env',
+      type: 'javascript',
+      required: true,
+      defaultValue: ``,
       code: true,
     },
   ],

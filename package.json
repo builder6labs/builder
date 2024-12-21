@@ -14,12 +14,10 @@
     "examples/next-js-app-router"
   ],
   "workspaces": [
-    "packages/amis",
     "packages/core",
     "packages/react",
     "packages/webcomponents",
-    "packages/widgets",
-    "examples/next-js-app-router"
+    "packages/widgets"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
