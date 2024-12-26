@@ -26,9 +26,12 @@ type AssetConfig = {
 export class AssetsLoaderClass {
   static loadingRemoteAssets: Record<string, boolean> = {};
   static packages: Record<string, AssetPackage> = {};
+  static unpkgUrl: string;
 
-  static async registerRemoteAssets(assetUrls: string[]): Promise<void> {
-    for await (const assetUrl of assetUrls) {
+  static async registerRemoteAssets(assetUrls: string[], unpkgUrl): Promise<void> {
+    this.unpkgUrl = unpkgUrl;
+    for await (let assetUrl of assetUrls) {
+      assetUrl = assetUrl.replace('https://unpkg.com', this.unpkgUrl);
       if (this.loadingRemoteAssets[assetUrl]) {
         console.log(`Already loading: ${assetUrl}`);
         continue;
@@ -109,7 +112,7 @@ export class AssetsLoaderClass {
   static injectScript(src: string): Promise<void> {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = src;
+      script.src = src.replace('https://unpkg.com', this.unpkgUrl);
       script.async = true;
       script.onload = () => resolve();
       script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
@@ -120,7 +123,7 @@ export class AssetsLoaderClass {
   static injectCSS(href: string): void {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = href;
+    link.href = href.replace('https://unpkg.com', this.unpkgUrl);
     document.head.appendChild(link);
   }
 }
@@ -130,6 +133,7 @@ export class AssetsLoaderClass {
 type AssetsLoaderComponentProps = {
     builderBlock?: BuilderElement;
     urls: string[];
+    unpkgUrl: string,
     children?: React.ReactNode;
   };
   
@@ -157,8 +161,8 @@ type AssetsLoaderComponentProps = {
     }
   
     async loadAssets() {
-      const { urls } = this.props;
-      await AssetsLoaderClass.registerRemoteAssets(urls);
+      const { urls, unpkgUrl = 'https://unpkg.com' } = this.props;
+      await AssetsLoaderClass.registerRemoteAssets(urls, unpkgUrl);
       this.setState({ assetsLoaded: true });
     }
   
