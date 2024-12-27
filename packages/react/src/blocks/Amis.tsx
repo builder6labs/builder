@@ -50,9 +50,9 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
 
       if (component && component.amis && component.amis.render && !component.amis.isRegisterd) {
           console.log(`Register amis component: ${component.amis.render.type}`, component.amis.render);
-          component.amis.isRegisterd = true;
           //注册自定义组件，请参考后续对工作原理的介绍
           this.amisLib.Renderer(component.amis.render)(component);
+          component.amis.isRegisterd = true;
       }
     });
   }

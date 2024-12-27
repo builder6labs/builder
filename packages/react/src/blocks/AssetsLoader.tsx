@@ -24,7 +24,7 @@ type AssetConfig = {
 };
 
 export class AssetsLoaderClass {
-  static loadingRemoteAssets: Record<string, boolean> = {};
+  static remoteAssets: Record<string, string> = {};
   static packages: Record<string, AssetPackage> = {};
   static unpkgUrl: string;
 
@@ -32,12 +32,12 @@ export class AssetsLoaderClass {
     this.unpkgUrl = unpkgUrl;
     for await (let assetUrl of assetUrls) {
       assetUrl = assetUrl.replace('https://unpkg.com', this.unpkgUrl);
-      if (this.loadingRemoteAssets[assetUrl]) {
+      if (this.remoteAssets[assetUrl]) {
         console.log(`Already loading: ${assetUrl}`);
         continue;
       }
 
-      this.loadingRemoteAssets[assetUrl] = true;
+      this.remoteAssets[assetUrl] = 'loading';
 
       try {
         const response = await fetch(assetUrl, { mode: 'cors' });
@@ -50,7 +50,7 @@ export class AssetsLoaderClass {
       } catch (error) {
         console.error(`Error loading asset from ${assetUrl}:`, error);
       } finally {
-        delete this.loadingRemoteAssets[assetUrl];
+        this.remoteAssets[assetUrl] = 'loaded';
       }
     }
   }
@@ -96,10 +96,13 @@ export class AssetsLoaderClass {
               if (comp.amis) {
                 component['amis'] = comp.amis;
               }
-              Builder.registerComponent(
-                component,
-                { name: comp.componentName, }
-              );
+              // 判断 Builder6.components 中name是否存在，如果不存在则创建
+              if (!Builder.components.find((item: any) => item.name === comp.componentName)) {
+                Builder.registerComponent(
+                  component,
+                  { name: comp.componentName, }
+                );
+              }
             } else {
               console.error(`Component ${comp.npm.exportName} not found in package ${comp.npm.package}`);
             }
