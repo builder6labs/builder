@@ -27,6 +27,7 @@ export class AssetsLoaderClass {
   static remoteAssets: Record<string, string> = {};
   static packages: Record<string, AssetPackage> = {};
   static unpkgUrl: string;
+  static componentWrapper: Function;
 
   static async registerRemoteAssets(assetUrls: string[], unpkgUrl): Promise<void> {
     this.unpkgUrl = unpkgUrl;
@@ -93,14 +94,12 @@ export class AssetsLoaderClass {
             const pkg = (window as any)[library]
             if (pkg && pkg[comp.npm.exportName]){
               const component = pkg[comp.npm.exportName];
-              if (comp.amis) {
-                component['amis'] = comp.amis;
-              }
+              component['plugins'] = comp;
               // 判断 Builder6.components 中name是否存在，如果不存在则创建
               if (!Builder.components.find((item: any) => item.name === comp.componentName)) {
                 Builder.registerComponent(
                   component,
-                  { name: comp.componentName, }
+                  { name: comp.componentName}
                 );
               }
             } else {
@@ -192,19 +191,19 @@ type AssetsLoaderComponentProps = {
   
   
 export const AssetsLoader = withBuilder(AssetsLoaderComponent, {
-    name: 'Core:AssetsLoader',
-    static: true,
-    image:
-      'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2F682efef23ace49afac61748dd305c70a',
-    inputs: [
-      {
-        name: 'urls',
-        type: 'javascript',
-        required: true,
-        defaultValue: '',
-        code: true,
-      },
-    ],
-    canHaveChildren: true,
-  });
+  name: 'Core:AssetsLoader',
+  static: true,
+  image:
+    'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2F682efef23ace49afac61748dd305c70a',
+  inputs: [
+    {
+      name: 'urls',
+      type: 'javascript',
+      required: true,
+      defaultValue: '',
+      code: true,
+    },
+  ],
+  canHaveChildren: true,
+});
   

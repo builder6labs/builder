@@ -10,6 +10,8 @@ import { BuilderElement, Builder } from '@builder6/sdk';
 import { withBuilder } from '../functions/with-builder';
 import { BuilderStore } from '../store/builder-store';
 
+import { AmisRenderer } from './AmisRenderer';
+
 interface AmisProps {
   schema: object;
   data: object;
@@ -18,11 +20,7 @@ interface AmisProps {
   builderBlock: BuilderElement;
 }
 
-interface AmisComponentState {
-  isLoaded: boolean;
-}
-
-class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisComponentState> {
+export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>> {
   amis: any = null;
   amisLib: any = null;
 
@@ -39,25 +37,29 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
 
     super(props);
     this.ref = React.createRef<HTMLDivElement>();
-   
   }
-
 
   registerComponents() {
 
     Builder.components.forEach((componentMeta:any) => {
       const component = componentMeta.class
 
-      if (component && component.amis && component.amis.render && !component.amis.isRegisterd) {
-          console.log(`Register amis component: ${component.amis.render.type}`, component.amis.render);
+      if (component && component.plugins && component.plugins.amis && component.plugins.amis.render && !component.plugins.amis.isRegisterd) {
+          console.log(`Register amis component: ${component.plugins.amis.render.type}`, component.plugins.amis.render);
           //注册自定义组件，请参考后续对工作原理的介绍
-          this.amisLib.Renderer(component.amis.render)(component);
-          component.amis.isRegisterd = true;
+          let componentClass = component;
+          if (component.plugins.componentType === 'amisSchema') {
+            componentClass = (props) => (
+              <AmisRenderer {...props} schema={component}/>
+            )
+          }
+          this.amisLib.Renderer(component.plugins.amis.render)(componentClass);
+          component.plugins.amis.isRegisterd = true;
       }
     });
   }
   
-  componentDidMount() {
+  async componentDidMount() {
 
     if (Builder.isServer){
       return
@@ -69,7 +71,7 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
       console.error('Amis is not loaded');
       return;
     }
-    this.registerComponents();
+    await this.registerComponents();
 
     const { builderState } = this.props;
     const data = {
@@ -87,13 +89,16 @@ class AmisComponent extends React.Component<PropsWithChildren<AmisProps>, AmisCo
       },
       ...this.props.env,
     };
-    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, data, env);
+    console.log('render amis', this.amis, this.props.schema, data, env);
+    this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, {data}, env);
   }
 
-  componentDidUpdate(prevProps) {
+  async componentDidUpdate(prevProps) {
+
     if (prevProps.schema !== this.props.schema) {
       this.amisScoped.updateSchema(this.props.schema);
-    } else if (prevProps.data !== this.props.data) {
+    }
+    else if (prevProps.data !== this.props.data) {
       this.amisScoped.updateProps(this.props.data, () => {
         /*更新回调 */
       });
