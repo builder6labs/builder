@@ -1,6 +1,6 @@
 {
   "name": "@builder6/react",
-  "version": "3.2.20",
+  "version": "3.2.21",
   "description": "",
   "keywords": [],
   "main": "dist/builder-react.cjs.js",

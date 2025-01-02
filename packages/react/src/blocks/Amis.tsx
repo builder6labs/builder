@@ -53,7 +53,10 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
               <AmisRenderer {...props} schema={component}/>
             )
           }
-          this.amisLib.Renderer(component.plugins.amis.render)(componentClass);
+          this.amisLib.Renderer({
+            autoVar: true,
+            ...component.plugins.amis.render
+          })(componentClass);
           component.plugins.amis.isRegisterd = true;
       }
     });
