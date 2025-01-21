@@ -1272,7 +1272,7 @@ export class Builder {
 
     const host = this.host;
 
-    getFetch()(`${host}/api/v6/pages/track`, {
+    getFetch()(`${host}/api/v6/content/track`, {
       method: 'POST',
       body: JSON.stringify({ events }),
       headers: {

@@ -825,7 +825,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@builder.io/example-react@workspace:examples/react"
   dependencies:
-    "@builder.io/react": ^2.0.4
+    "@builder.io/react": ^8.0.4
     "@vitejs/plugin-react": ^3.1.0
     react: ^16.9.0
     react-dom: ^16.9.0
@@ -835,26 +835,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@builder.io/react@npm:^2.0.4":
-  version: 2.2.0
-  resolution: "@builder.io/react@npm:2.2.0"
+"@builder.io/react@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "@builder.io/react@npm:8.0.4"
   dependencies:
-    "@builder.io/sdk": 1.3.0
+    "@builder.io/sdk": 6.0.2
     "@emotion/core": ^10.0.17
     hash-sum: ^2.0.0
+    isolated-vm: ^5.0.0
     node-fetch: ^2.6.1
     preact: ^10.1.0
     prop-types: ^15.7.2
-    vm2: ^3.9.18
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ">=16.8.0 || ^19.0.0-rc"
+    react-dom: ">=16.8.0 || ^19.0.0-rc"
   dependenciesMeta:
     node-fetch:
       optional: true
     prop-types:
       optional: true
-  checksum: 86ed6742930bb691301853ed5a0f69540b44580dd33448d6e200a80e0d7c37cf6165dc9997e66c6f9dbc219db351621a252785475471299ce04cc1e602ab8029
+  checksum: 1bbf57d075d40392087f59b791aa87aba3d3f1b1ad1ea0770b9f6c52e7c3f40ea8901ff1cf55ddfbc66b8487ae65c4ed68eaa2f6f762510f52ff72ae892df37a
   languageName: node
   linkType: hard
 
@@ -877,14 +877,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@builder.io/sdk@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@builder.io/sdk@npm:1.3.0"
+"@builder.io/sdk@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@builder.io/sdk@npm:6.0.2"
   dependencies:
     hash-sum: ^2.0.0
     node-fetch: ^2.3.0
     tslib: ^1.10.0
-  checksum: 82f0a66e914451193a1e7d406136a6d1e6f4bc35248ea18f91e1efccba4d0f4b833a7b15bf0c689816f17c3250c5a7feade2f700a6116d872a0c1861bd5419cd
+  checksum: 5d09dbcf1876f25138c179f98b81d9688f3848e1c2ed178a2a1b9187666fb28bb800d8288e091fe8adda15a88d5d038e3eabfc7c87c45ec9efeb4b9842fab96b
   languageName: node
   linkType: hard
 
@@ -5554,13 +5554,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-walk@npm:^8.2.0":
-  version: 8.3.0
-  resolution: "acorn-walk@npm:8.3.0"
-  checksum: 15ea56ab6529135be05e7d018f935ca80a572355dd3f6d3cd717e36df3346e0f635a93ae781b1c7942607693e2e5f3ef81af5c6fc697bbadcc377ebda7b7f5f6
-  languageName: node
-  linkType: hard
-
 "acorn@npm:^5.5.3, acorn@npm:^5.7.3":
   version: 5.7.4
   resolution: "acorn@npm:5.7.4"
@@ -5603,15 +5596,6 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 76d8e7d559512566b43ab4aadc374f11f563f0a9e21626dd59cb2888444e9445923ae9f3699972767f18af61df89cd89f5eaaf772d1327b055b45cb829b4a88c
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.7.0":
-  version: 8.14.0
-  resolution: "acorn@npm:8.14.0"
-  bin:
-    acorn: bin/acorn
-  checksum: 8755074ba55fff94e84e81c72f1013c2d9c78e973c31231c8ae505a5f966859baf654bddd75046bffd73ce816b149298977fff5077a3033dedba0ae2aad152d4
   languageName: node
   linkType: hard
 
@@ -25758,18 +25742,6 @@ __metadata:
   version: 0.2.3
   resolution: "vlq@npm:0.2.3"
   checksum: 2231d8caeb5b2c1a438677ab029e9a94aa6fb61ab05819c72691b792aea0456dab29576aff5ae29309ee45bad0a309e832dc45173119bca1393f3b87709d8f8d
-  languageName: node
-  linkType: hard
-
-"vm2@npm:^3.9.18":
-  version: 3.9.19
-  resolution: "vm2@npm:3.9.19"
-  dependencies:
-    acorn: ^8.7.0
-    acorn-walk: ^8.2.0
-  bin:
-    vm2: bin/vm2
-  checksum: fc6cf553134145cd7bb5246985bf242b056e3fb5ea71e2eef6710b2a5d6c6119cc6bc960435ff62480ee82efb43369be8f4db07b6690916ae7d3b2e714f395d8
   languageName: node
   linkType: hard
 

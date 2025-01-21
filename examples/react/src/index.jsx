@@ -7,6 +7,7 @@ import './index.css';
 
 
 builder.init('97cb1aafe8a74105bdb3783644ea77ce');
+builder.apiEndpoint = 'content';
 
 function App() {
 
@@ -34,12 +35,13 @@ function App() {
           <Link className="link" to="/about">
             About
           </Link>
-          <Link className="link" to="/page-1">
-            Page 1
-          </Link>
-          <Link className="link" to="/page-2">
-            Page 2
-          </Link>
+          {allPages.map(page => {
+            return (
+              <Link className="link" to={page.data.url}>
+                {page.name}
+              </Link>
+            );
+          })}
           <Link className="link" to="/404">
             404
           </Link>
