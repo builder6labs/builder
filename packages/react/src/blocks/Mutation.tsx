@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React from 'react';
-import { Builder, BuilderElement } from '@builder.io/sdk';
+import { Builder, BuilderElement } from '@builder6/sdk';
 import { BuilderBlocks } from '../components/builder-blocks.component';
 
 Builder.registerComponent(Mutation, {

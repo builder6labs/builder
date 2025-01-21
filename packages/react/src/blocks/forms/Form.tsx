@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 import { BuilderBlock as BuilderBlockComponent } from '../../components/builder-block.component';
-import { BuilderElement, Builder, builder } from '@builder.io/sdk';
+import { BuilderElement, Builder, builder } from '@builder6/sdk';
 import { BuilderBlocks } from '../../components/builder-blocks.component';
 import { BuilderStoreContext } from '../../store/builder-store';
 import { set } from '../../functions/set';

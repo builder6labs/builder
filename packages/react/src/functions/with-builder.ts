@@ -1,4 +1,4 @@
-import { Component } from '@builder.io/sdk';
+import { Component } from '@builder6/sdk';
 import { BuilderBlock } from '../decorators/builder-block.decorator';
 
 export function withBuilder(component: Function, options: Component) {

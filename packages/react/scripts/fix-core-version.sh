@@ -5,5 +5,5 @@
 
 VERSION_NUMBER=$(jq -r '.version' ../core/package.json)
 
-echo "Updating package.json to use version $VERSION_NUMBER of @builder.io/sdk"
-jq --arg VERSION_NUMBER $VERSION_NUMBER '.dependencies."@builder.io/sdk" = $VERSION_NUMBER' package.json >temp.json && mv temp.json package.json
+echo "Updating package.json to use version $VERSION_NUMBER of @builder6/sdk"
+jq --arg VERSION_NUMBER $VERSION_NUMBER '.dependencies."@builder6/sdk" = $VERSION_NUMBER' package.json >temp.json && mv temp.json package.json

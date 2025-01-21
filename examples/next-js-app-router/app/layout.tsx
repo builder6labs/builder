@@ -1,7 +1,10 @@
+/*
+ * @Author: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @Date: 2024-06-07 08:38:13
+ * @LastEditors: Jack Zhuang 50353452+hotlong@users.noreply.github.com
+ * @LastEditTime: 2024-06-10 16:30:41
+ */
 import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>   
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

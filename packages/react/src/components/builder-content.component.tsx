@@ -6,7 +6,7 @@ import {
   GetContentOptions,
   Builder,
   BuilderContent as Content,
-} from '@builder.io/sdk';
+} from '@builder6/sdk';
 import { NoWrap } from './no-wrap';
 import { applyPatchWithMinimalMutationChain } from '../functions/apply-patch-with-mutation';
 import { VariantsProvider } from './variants-provider.component';

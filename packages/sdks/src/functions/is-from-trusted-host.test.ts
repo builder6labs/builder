@@ -5,32 +5,32 @@ describe('isFromTrustedHost', () => {
     expect(isFromTrustedHost(undefined, { origin: 'https://localhost' })).toBe(
       true
     );
-    expect(isFromTrustedHost(undefined, { origin: 'https://builder.io' })).toBe(
+    expect(isFromTrustedHost(undefined, { origin: 'https://builder6.com' })).toBe(
       true
     );
     expect(
-      isFromTrustedHost(undefined, { origin: 'https://beta.builder.io' })
+      isFromTrustedHost(undefined, { origin: 'https://beta.builder6.com' })
     ).toBe(true);
     expect(
-      isFromTrustedHost(undefined, { origin: 'https://qa.builder.io' })
+      isFromTrustedHost(undefined, { origin: 'https://qa.builder6.com' })
     ).toBe(true);
     expect(
       isFromTrustedHost(undefined, {
-        origin: 'https://123-review-build.beta.builder.io',
+        origin: 'https://123-review-build.beta.builder6.com',
       })
     ).toBe(true);
   });
 
-  test('arbitrary builder.io subdomains', () => {
+  test('arbitrary builder6.com subdomains', () => {
     expect(
-      isFromTrustedHost(undefined, { origin: 'https://cdn.builder.io' })
+      isFromTrustedHost(undefined, { origin: 'https://cdn.builder6.com' })
     ).toBe(false);
     expect(
-      isFromTrustedHost(undefined, { origin: 'https://foo.builder.io' })
+      isFromTrustedHost(undefined, { origin: 'https://foo.builder6.com' })
     ).toBe(false);
     expect(
       isFromTrustedHost(undefined, {
-        origin: 'https://evildomainbeta.builder.io',
+        origin: 'https://evildomainbeta.builder6.com',
       })
     ).toBe(false);
   });

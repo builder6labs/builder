@@ -32,11 +32,11 @@ const umdOptions = {
   output: [
     {
       format: 'umd',
-      name: 'BuilderIO',
+      name: 'Builder6',
       file: 'dist/index.umd.js',
       sourcemap: true,
       amd: {
-        id: '@builder.io/sdk',
+        id: '@builder6/sdk',
       },
     },
   ],
@@ -52,7 +52,7 @@ const umdMinOptions = {
       file: pkg.unpkg,
       sourcemap: true,
       amd: {
-        id: '@builder.io/sdk',
+        id: '@builder6/sdk',
       },
     },
   ],

@@ -1,9 +1,9 @@
 const DEFAULT_TRUSTED_HOSTS = [
-  '*.beta.builder.io',
-  'beta.builder.io',
-  'builder.io',
+  '*.beta.builder6.com',
+  'beta.builder6.com',
+  'builder6.com',
   'localhost',
-  'qa.builder.io',
+  'qa.builder6.com',
 ];
 
 export function isFromTrustedHost(

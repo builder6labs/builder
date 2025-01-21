@@ -1,7 +1,7 @@
 import './scripts/init-editing';
 
-import { builder, Builder } from '@builder.io/sdk';
-export { BuilderElement } from '@builder.io/sdk';
+import { builder, Builder } from '@builder6/sdk';
+export { BuilderElement } from '@builder6/sdk';
 import { SDK_VERSION } from './sdk-version';
 
 Builder.isReact = true;
@@ -33,6 +33,8 @@ export { BuilderComponent as BuilderPage, onChange, RegisteredComponent };
 export { BuilderComponent };
 export { BuilderComponent as Content };
 
+export { AssetsLoader } from './blocks/AssetsLoader';
+export { Amis } from './blocks/Amis';
 export { Text } from './blocks/Text';
 export { Slot as Dropzone } from './blocks/Slot';
 export { Fragment } from './blocks/Fragment';

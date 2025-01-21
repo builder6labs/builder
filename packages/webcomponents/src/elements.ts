@@ -1,8 +1,8 @@
-import { Builder, builder } from '@builder.io/react';
-const importReact = () => import('@builder.io/react');
-const importShopify = () => import('@builder.io/shopify/react');
-const importShopifyJs = () => import('@builder.io/shopify/js');
-const importWidgets = () => import('@builder.io/widgets');
+import { Builder, builder } from '@builder6/react';
+const importReact = () => import('@builder6/react');
+const importShopify = () => {}; //import('@builder.io/shopify/react');
+const importShopifyJs = () => {}; //import('@builder.io/shopify/js');
+const importWidgets = () => import('@builder6/widgets');
 
 Builder.isStatic = true;
 Builder.sdkInfo = {
@@ -26,7 +26,7 @@ function wrapHistoryPropertyWithCustomEvent(property: 'pushState' | 'replaceStat
   try {
     const anyHistory = history;
     const originalFunction = anyHistory[property];
-    anyHistory[property] = function (this: History) {
+    anyHistory[property] = function(this: History) {
       let rv = originalFunction.apply(this, arguments as any);
       let event = new CustomEvent(property, {
         detail: {
@@ -53,7 +53,7 @@ function addHistoryChangeEvent() {
 
 const componentName = process.env.ANGULAR ? 'builder-component-element' : 'builder-component';
 
-const isShopify = Boolean((window as any).Shopify);
+const isShopify = false; //Boolean((window as any).Shopify);
 
 if (Builder.isIframe) {
   importReact();
@@ -61,7 +61,7 @@ if (Builder.isIframe) {
   if (isShopify) {
     importShopify();
   }
-  import('@builder.io/email');
+  // import('@builder.io/email');
 }
 
 const parsedUrl = new URL(location.href);
@@ -167,9 +167,9 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
               style,
             });
 
-            if (!document.fonts.has(font)) {
-              document.fonts.add(font);
-            }
+            // if (!document.fonts.has(font)) {
+            //   document.fonts.add(font);
+            // }
 
             return '';
           }
@@ -390,6 +390,10 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
     }
 
     getContent(fresh = false) {
+      const host = this.getAttribute('host');
+      if (host) {
+        Builder.overrideHost = host;
+      }
       const token = this.getAttribute('token') || this.getAttribute('auth-token');
       if (token) {
         builder.authToken = token;
@@ -556,7 +560,7 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
       );
 
       if (email) {
-        emailPromise = import('@builder.io/email');
+        // emailPromise = import('@builder.io/email');
       }
 
       const slot = this.getAttribute('slot');
@@ -568,15 +572,15 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
         hasFullData
       ) {
         const { BuilderPage } = await getReactPromise;
-        await getWidgetsPromise;
+        // await getWidgetsPromise;
         if (isShopify) {
-          await getShopifyPromise;
+          // await getShopifyPromise;
         }
 
         let shopify: any;
         if (isShopify) {
-          const { Shopify } = await getShopifyJsPromise!;
-          shopify = new Shopify({});
+          // const { Shopify } = await getShopifyJsPromise!;
+          // shopify = new Shopify({});
         }
         // Ensure styles don't load twice
         BuilderPage.renderInto(
@@ -585,10 +589,10 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
             ...({ ref: (ref: any) => (this.builderPageRef = ref) } as any),
             modelName: name!,
             context: Object.assign(this.context, {
-              ...(isShopify && {
-                shopify,
-                liquid: shopify.liquid,
-              }),
+              // ...(isShopify && {
+              //   shopify,
+              //   liquid: shopify.liquid,
+              // }),
               apiKey: builder.apiKey,
             }),
             data: this.state,
@@ -638,8 +642,8 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
             this.dispatchEvent(loadEvent);
             let shopify: any;
             if (isShopify) {
-              const { Shopify } = await getShopifyJsPromise!;
-              shopify = new Shopify({});
+              // const { Shopify } = await getShopifyJsPromise!;
+              // shopify = new Shopify({});
             }
 
             BuilderPage.renderInto(
@@ -648,10 +652,10 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
                 ...({ ref: (ref: any) => (this.builderPageRef = ref) } as any),
                 modelName: name!,
                 context: Object.assign(this.context, {
-                  ...(isShopify && {
-                    shopify,
-                    liquid: shopify.liquid,
-                  }),
+                  // ...(isShopify && {
+                  //   shopify,
+                  //   liquid: shopify.liquid,
+                  // }),
                   apiKey: builder.apiKey,
                 }),
                 emailMode:
@@ -700,8 +704,8 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
               }
               let shopify: any;
               if (isShopify) {
-                const { Shopify } = await getShopifyJsPromise!;
-                shopify = new Shopify({});
+                // const { Shopify } = await getShopifyJsPromise!;
+                // shopify = new Shopify({});
               }
               BuilderPage.renderInto(
                 wrapInDiv(this),
@@ -710,10 +714,10 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
                     ref: (ref: any) => (this.builderPageRef = ref),
                   } as any),
                   context: Object.assign(this.context, {
-                    ...(isShopify && {
-                      shopify,
-                      liquid: shopify.liquid,
-                    }),
+                    // ...(isShopify && {
+                    //   shopify,
+                    //   liquid: shopify.liquid,
+                    // }),
                     apiKey: builder.apiKey,
                   }),
                   modelName: name!,
@@ -785,8 +789,7 @@ if (Builder.isBrowser && !customElements.get(componentName)) {
   customElements.define('builder-init', BuilderInit);
 }
 
-type BuilderBlocksProps =
-  import('@builder.io/react/dist/types/src/components/builder-blocks.component').BuilderBlocksProps;
+type BuilderBlocksProps = import('@builder6/react/dist/types/src/components/builder-blocks.component').BuilderBlocksProps;
 
 if (Builder.isBrowser && !customElements.get('builder-blocks-slot')) {
   class BuilderBlocksSlot extends HTMLElement {

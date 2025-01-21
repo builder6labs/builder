@@ -1,4 +1,4 @@
 {
-  "name": "@builder.io/sdk",
+  "name": "@builder6/sdk",
   "$schema": "../node_modules/nx/schemas/project-schema.json"
 }

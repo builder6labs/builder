@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from 'react';
 
 import { throttle } from '../functions/throttle';
 import { withChildren } from '../functions/with-children';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { IMAGE_FILE_TYPES, VIDEO_FILE_TYPES } from 'src/constants/file-types.constant';
 
 const DEFAULT_ASPECT_RATIO = 0.7004048582995948;

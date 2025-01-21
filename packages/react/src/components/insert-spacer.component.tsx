@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 
 import React from 'react';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { BuilderStoreContext } from '../store/builder-store';
 
 export interface SpacerProps {

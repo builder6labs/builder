@@ -1,4 +1,4 @@
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 
 const nextTick = Builder.nextTick;
 

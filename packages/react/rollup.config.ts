@@ -81,7 +81,7 @@ export default [
     ...options,
     output: {
       file: 'dist/builder-react.browser.js',
-      name: 'BuilderReact',
+      name: 'Builder6React',
       format: 'umd',
       sourcemap: true,
       amd: {
@@ -136,7 +136,7 @@ export default [
     output: {
       file: pkg.unpkg,
       format: 'iife',
-      name: 'BuilderReact',
+      name: 'Builder6React',
       sourcemap: true,
     },
   },

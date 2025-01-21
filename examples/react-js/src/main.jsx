@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
-import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
+import { BuilderComponent, Builder, builder, useIsPreviewing } from '@builder6/react';
 
 import './index.css';
 
 // Put your API key here
-builder.init('YOUR_API_KEY');
+builder.init(import.meta.env.VITE_B6_API_KEY);
+builder.apiVersion = 'v6'
+builder.host = import.meta.env.VITE_B6_ROOT_URL;
 
 function App() {
   const [allPages, setAllPages] = useState([]);

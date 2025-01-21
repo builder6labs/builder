@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, InterpolationWithTheme } from '@emotion/core';
 import React from 'react';
-import { Builder, BuilderElement } from '@builder.io/sdk';
+import { Builder, BuilderElement } from '@builder6/sdk';
 import { withBuilder } from '../functions/with-builder';
 import { BuilderStoreContext } from '../store/builder-store';
 import { tryEval } from '../functions/try-eval';

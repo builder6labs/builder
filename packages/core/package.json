@@ -1,5 +1,5 @@
 {
-  "name": "@builder.io/sdk",
+  "name": "@builder6/sdk",
   "version": "6.0.2",
   "unpkg": "./dist/index.browser.js",
   "main": "./dist/index.cjs.js",
@@ -67,7 +67,7 @@
   "dependencies": {
     "hash-sum": "^2.0.0",
     "node-fetch": "^2.3.0",
-    "tslib": "^1.10.0"
+    "tslib": "^2.6.3"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"

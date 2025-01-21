@@ -1,6 +1,6 @@
 'use strict';
 
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 
 const noop = () => null;
 // Allow us to require things dynamically safe from webpack bundling

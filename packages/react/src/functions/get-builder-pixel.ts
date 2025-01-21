@@ -1,4 +1,4 @@
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 
 export function getBuilderPixel(apiKey: string): BuilderElement {
   return {
@@ -8,7 +8,7 @@ export function getBuilderPixel(apiKey: string): BuilderElement {
     properties: {
       role: 'presentation',
       'aria-hidden': 'true',
-      src: `https://cdn.builder.io/api/v1/pixel?apiKey=${apiKey}`,
+      src: `https://cdn.builder6.com/api/v1/pixel?apiKey=${apiKey}`,
     },
     responsiveStyles: {
       large: {

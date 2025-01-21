@@ -3,7 +3,7 @@
 This SDK is largely a wrapper over our [Content API](https://www.builder.io/c/docs/content-api)
 
 ```javascript
-import { builder } from '@builder.io/sdk';
+import { builder } from '@builder6/sdk';
 
 builder.init(YOUR_KEY);
 

@@ -1,4 +1,4 @@
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 
 export const el = (options?: Partial<BuilderElement>, useId?: number): BuilderElement => ({
   '@type': '@builder.io/sdk:Element',

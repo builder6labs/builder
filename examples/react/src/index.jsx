@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
-import { BuilderComponent } from '@builder.io/react';
+import { BuilderComponent, builder } from '@builder.io/react';
 
 import './index.css';
 
+
+builder.init('97cb1aafe8a74105bdb3783644ea77ce');
+
 function App() {
+
+  const [allPages, setAllPages] = useState([]);
+
+  useEffect(() => {
+    async function getStaticProps() {
+      const pages = await builder.getAll('page', {
+        // fields: 'data.url,name',
+        options: { noTargeting: true },
+      });
+      setAllPages(pages);
+    }
+    getStaticProps();
+  }, []);
+  
   return (
     <BrowserRouter>
       <header>
@@ -45,7 +62,6 @@ class CatchallPage extends React.Component {
   render() {
     return !this.state.notFound ? (
       <BuilderComponent
-        apiKey="bb209db71e62412dbe0114bdae18fd15"
         model="page"
         contentLoaded={content => {
           if (!content) {

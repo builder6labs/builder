@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React, { PropsWithChildren } from 'react';
 import { BuilderComponent } from '../components/builder-component.component';
-import { Builder, BuilderElement, builder } from '@builder.io/sdk';
+import { Builder, BuilderElement, builder } from '@builder6/sdk';
 import hash from 'hash-sum';
 import { NoWrap } from '../components/no-wrap';
 import { BuilderStoreContext } from '../store/builder-store';

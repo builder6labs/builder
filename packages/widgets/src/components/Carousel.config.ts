@@ -1,4 +1,4 @@
-import { BuilderElement } from '@builder.io/react';
+import { BuilderElement } from '@builder6/react';
 
 const defaultElement: BuilderElement = {
   '@type': '@builder.io/sdk:Element',
@@ -201,4 +201,11 @@ export const carouselConfig: any = {
       ],
     },
   ],
+  plugins: {
+    amis: {
+      type: 'builder-carousel',
+      usage: 'renderer',
+      autoVar: true,
+    }
+  }
 };

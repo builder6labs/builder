@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { useContext } from 'react';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder6/sdk';
 import { BuilderBlocks } from '../components/builder-blocks.component';
 import { BuilderStoreContext } from '../store/builder-store';
 

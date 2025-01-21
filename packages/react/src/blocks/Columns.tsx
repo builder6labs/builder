@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
-import { BuilderElement } from '@builder.io/sdk';
+import { BuilderElement } from '@builder6/sdk';
 import { BuilderBlocks } from '../components/builder-blocks.component';
 import { withBuilder } from '../functions/with-builder';
 import { Link } from '../components/Link';

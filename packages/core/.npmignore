@@ -3,3 +3,5 @@
 *.log
 /src
 .rpt2_cache
+/scripts
+/docs

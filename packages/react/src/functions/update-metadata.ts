@@ -1,4 +1,4 @@
-import { Component, Builder } from '@builder.io/sdk';
+import { Component, Builder } from '@builder6/sdk';
 
 /**
  * Update metadata for a Builder component

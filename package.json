@@ -1,7 +1,7 @@
 {
   "name": "@builder.io/root",
   "private": true,
-  "workspaces": [
+  "workspaces.old": [
     "packages",
     "packages/sdks-tests",
     "packages/sdks",
@@ -10,7 +10,16 @@
     "packages/react-tests/*",
     "packages/sdks/e2e/*",
     "packages/sdks/snippets/*",
-    "packages/sdks/output/*"
+    "packages/sdks/output/*",
+    "examples/next-js-app-router"
+  ],
+  "workspaces": [
+    "examples/react",
+    "examples/react-js",
+    "packages/core",
+    "packages/react",
+    "packages/webcomponents",
+    "packages/widgets"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -29,6 +38,7 @@
   "scripts": {
     "ci:lint": "prettier --check '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+    "build": "npx nx run-many -p @builder6/sdk @builder6/react @builder6/webcomponents -t build --skip-nx-cache",
     "update-npm-dependency": "zx ./scripts/update-npm-dependency.mjs",
     "g:changeset": "changeset",
     "g:nx": "cd $INIT_CWD && nx"
@@ -38,6 +48,9 @@
   },
   "packageManager": "yarn@3.6.1",
   "resolutions": {
+    "@builder6/react": "workspace:*",
+    "@builder6/sdk": "workspace:*",
+    "tslib": "^2.6.3",
     "minimist": "^1.2.7",
     "json5": "2.2.1",
     "@builder.io/react": "workspace:*",

@@ -4,7 +4,7 @@
 // for best performance in modern browsers
 import './polyfills/custom-element-es5-adapter.js';
 import './polyfills/custom-event-polyfill.js';
-import { builder, Builder } from '@builder.io/react';
+import { builder, Builder } from '@builder6/react';
 import { version } from '../package.json';
 import './elements';
 
