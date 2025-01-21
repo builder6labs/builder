@@ -1238,7 +1238,7 @@ export class Builder {
 
     const host = this.host;
 
-    getFetch()(`${host}/api/v1/track`, {
+    getFetch()(`${host}/api/v6/pages/track`, {
       method: 'POST',
       body: JSON.stringify({ events }),
       headers: {
@@ -1293,6 +1293,7 @@ export class Builder {
     }
   }
 
+  private host$ = new BehaviorSubject<string | null>(null);
   private apiVersion$ = new BehaviorSubject<ApiVersion | undefined>(undefined);
   private canTrack$ = new BehaviorSubject(!this.browserTrackingDisabled);
   private apiKey$ = new BehaviorSubject<string | null>(null);
@@ -2339,26 +2340,12 @@ export class Builder {
   }
 
   get host() {
-    switch (this.env) {
-      case 'qa':
-        return 'https://qa.builder6.com';
-      case 'test':
-        return 'https://builder-io-test.web.app';
-      case 'fast':
-        return 'https://fast.builder6.com';
-      case 'cloud':
-        return 'https://cloud.builder6.com';
-      case 'cdn2':
-        return 'https://cdn2.builder6.com';
-      case 'cdn-qa':
-        return 'https://cdn-qa.builder6.com';
-      case 'development':
-      case 'dev':
-        return 'http://localhost:5000';
-      case 'cdn-prod':
-        return 'https://cdn.builder6.com';
-      default:
-        return Builder.overrideHost || 'https://cdn.builder6.com';
+    return this.host$.value || Builder.overrideHost || 'https://cdn.builder6.com';
+  }
+
+  set host(host: string | null) {
+    if (this.host !== host) {
+      this.host$.next(host);
     }
   }
 
@@ -2370,9 +2357,9 @@ export class Builder {
     }
 
     if (this.apiVersion) {
-      if (!['v1', 'v3'].includes(this.apiVersion)) {
-        throw new Error(`Invalid apiVersion: expected 'v1' or 'v3', received '${this.apiVersion}'`);
-      }
+      // if (!['v1', 'v3', 'v6'].includes(this.apiVersion)) {
+      //   throw new Error(`Invalid apiVersion: expected 'v3' or 'v6', received '${this.apiVersion}'`);
+      // }
     } else {
       this.apiVersion = DEFAULT_API_VERSION;
     }
@@ -2551,9 +2538,9 @@ export class Builder {
     const fn = format === 'solid' || format === 'react' ? 'codegen' : 'query';
 
     // NOTE: this is a hack to get around the fact that the codegen endpoint is not yet available in v3
-    const apiVersionBasedOnFn = fn === 'query' ? this.apiVersion : 'v1';
+    // const apiVersionBasedOnFn = fn === 'query' ? this.apiVersion : 'v1';
     const url =
-      `${host}/api/${apiVersionBasedOnFn}/${fn}/${this.apiKey}/${keyNames}` +
+      `${host}/api/${this.apiVersion}/content/${keyNames}` +
       (queryParams && hasParams ? `?${queryStr}` : '');
 
     console.log('url', url);
