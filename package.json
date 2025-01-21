@@ -38,7 +38,7 @@
   "scripts": {
     "ci:lint": "prettier --check '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "prettier --write '**/*.{js,jsx,ts,tsx}'",
-    "build": "npx nx run-many -p @builder6/sdk @builder6/react @builder6/webcomponents -t build --skip-nx-cache",
+    "build": "nx run-many -p @builder6/sdk @builder6/react @builder6/webcomponents -t build --skip-nx-cache",
     "update-npm-dependency": "zx ./scripts/update-npm-dependency.mjs",
     "g:changeset": "changeset",
     "g:nx": "cd $INIT_CWD && nx"
@@ -53,8 +53,6 @@
     "tslib": "^2.6.3",
     "minimist": "^1.2.7",
     "json5": "2.2.1",
-    "@builder.io/react": "workspace:*",
-    "@builder.io/sdk": "workspace:*",
     "react-native-builder-bob@^0.21.3": "patch:react-native-builder-bob@npm%3A0.21.3#./.yarn/patches/react-native-builder-bob-npm-0.21.3-71f7168ad6.patch"
   },
   "dependenciesMeta": {

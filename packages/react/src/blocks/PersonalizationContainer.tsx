@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { Builder, builder, BuilderElement } from '@builder.io/sdk';
+import { Builder, builder, BuilderElement } from '@builder6/sdk';
 import { useEffect, useState } from 'react';
 import { BuilderBlocks } from '../components/builder-blocks.component';
 import {

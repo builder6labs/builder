@@ -1342,7 +1342,7 @@ export class Builder {
    * Dictates which API endpoint is used when fetching content. Allows `'content'` and `'query'`.
    * Defaults to `'query'`.
    */
-  private apiEndpoint$ = new BehaviorSubject<'content' | 'query'>('query');
+  private apiEndpoint$ = new BehaviorSubject<'content' | 'query'>('content');
   private host$ = new BehaviorSubject<string | null>(null);
   private apiVersion$ = new BehaviorSubject<ApiVersion | undefined>(undefined);
   private canTrack$ = new BehaviorSubject(!this.browserTrackingDisabled);
@@ -2695,7 +2695,7 @@ export class Builder {
     } else if (this.apiEndpoint === 'query') {
       url = `${host}/api/v3/query/${this.apiKey}/${keyNames}`;
     } else {
-      url = `${host}/api/v3/content/${queue[0].model}`;
+      url = `${host}/api/v6/content/${queue[0].model}`;
     }
 
     url = url + (queryParams && hasParams ? `?${queryStr}` : '');

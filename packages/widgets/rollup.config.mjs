@@ -7,7 +7,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import serve from 'rollup-plugin-serve';
 
-const pkg = require('./package.json');
+import pkg from './package.json' assert { type: 'json' };
 
 const libraryName = 'builder-widgets';
 
