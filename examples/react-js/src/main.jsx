@@ -5,17 +5,45 @@ import { BuilderComponent, Builder, builder, useIsPreviewing } from '@builder6/r
 
 import './index.css';
 
+window['React'] = React;
+window['ReactDOM'] = ReactDOM;
+window['Builder'] = Builder;
+window['builder'] = builder;
+
+Builder.overrideHost = import.meta.env.VITE_B6_ROOT_URL;
+Builder.settings.env = {
+  theme: 'antd',
+  requestAdaptor: (api) => {
+    if(api.allowCredentials != true){
+      api.withCredentials = false;
+      delete api.allowCredentials
+    }
+    return api;
+  },
+  hello: 'world',
+}
+
+Builder.settings.context = {
+  rootUrl: import.meta.env.VITE_B6_ROOT_URL
+};
+Builder.settings.unpkgUrl = 'https://unpkg.steedos.cn';
+Builder.settings.assetUrls = ['https://unpkg.steedos.cn/@steedos-widgets/amis-object@v6.3.12-beta.6/dist/assets.json'];
+
+const data = {
+  context: {
+    rootUrl: import.meta.env.VITE_B6_ROOT_URL
+  }
+}
+
 // Put your API key here
 builder.init(import.meta.env.VITE_B6_API_KEY);
-builder.apiVersion = 'v6'
-builder.host = import.meta.env.VITE_B6_ROOT_URL;
 
 function App() {
   const [allPages, setAllPages] = useState([]);
 
   useEffect(() => {
     async function getStaticProps() {
-      const pages = await builder.getAll('page', {
+      const pages = await builder.getAll('pages', {
         fields: 'data.url,name',
         options: { noTargeting: true },
       });
@@ -67,7 +95,7 @@ export default function CatchAllRoute() {
   useEffect(() => {
     async function fetchContent() {
       const content = await builder
-        .get('page', {
+        .get('pages', {
           url: window.location.pathname,
         })
         .promise();
@@ -87,7 +115,7 @@ export default function CatchAllRoute() {
   return (
     <>
       {/* Render the Builder page */}
-      <BuilderComponent model="page" content={content} />
+      <BuilderComponent model="pages" content={content} data={data}/>
     </>
   );
 }

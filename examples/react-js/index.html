@@ -6,7 +6,6 @@
     <link rel="icon" type="image/svg+xml" href="/react.svg" />
 
 
-    <script src="https://unpkg.steedos.cn/@builder6/react@3.2.19/dist/builder-react.browser.js"></script>
     <script src="https://unpkg.steedos.cn/@steedos-widgets/amis@6.3.0-patch.3/sdk/sdk.js"></script>
 
     <script src="https://unpkg.com/lodash@4.17.21/lodash.js"></script>
@@ -16,13 +15,17 @@
     <script async="">
       // window['React'] = amisRequire('react');
       // window['ReactDOM'] = amisRequire('react-dom');
-      // window['moment'] = amisRequire('moment');
-      // window['Builder'] = Builder6React.Builder;
-      // window['builder'] = Builder6React.builder;
-      // window['Amis'] = amisRequire('amis');
-      // window['AmisCore'] = amisRequire('amis-core');
-      // window['AmisUI'] = amisRequire('amis-ui');
+      window['moment'] = amisRequire('moment');
+      window['Amis'] = amisRequire('amis');
+      window['AmisCore'] = amisRequire('amis-core');
+      window['AmisUI'] = amisRequire('amis-ui');
     </script>
+
+    <!-- <script src="https://unpkg.steedos.cn/@builder6/react@3.2.19/dist/builder-react.browser.js"></script> -->
+    <!-- <script>
+      window['Builder'] = Builder6React.Builder;
+      window['builder'] = Builder6React.builder;
+    </script> -->
   </head>
   <body>
     <main id="root"></main>

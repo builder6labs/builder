@@ -18,7 +18,7 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
   constructor(props) {
 
     super(props);
-    console.log('props', props)
+    console.log('AmisRenderer props', props)
     this.state = {
       schema: null,
     };

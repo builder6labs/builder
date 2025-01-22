@@ -77,6 +77,7 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
     await this.registerComponents();
 
     const { builderState } = this.props;
+    const { context } = builderState;
     const data = {
       ...builderState.state,
       ...this.props.data,
@@ -90,9 +91,11 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
         }
         return config;
       },
-      ...this.props.env,
+      ...Builder.settings.env,
+      ...context.env,
+      ...data.env,
     };
-    console.log('render amis', this.amis, this.props.schema, data, env);
+    console.log('render amis', this.props, data, env);
     this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, {data}, env);
   }
 

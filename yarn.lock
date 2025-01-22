@@ -821,43 +821,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@builder.io/example-react@workspace:examples/react":
-  version: 0.0.0-use.local
-  resolution: "@builder.io/example-react@workspace:examples/react"
-  dependencies:
-    "@builder.io/react": ^8.0.4
-    "@vitejs/plugin-react": ^3.1.0
-    react: ^16.9.0
-    react-dom: ^16.9.0
-    react-router-dom: ^5.0.1
-    typescript: 3.3.3
-    vite: ^4.5.3
-  languageName: unknown
-  linkType: soft
-
-"@builder.io/react@npm:^8.0.4":
-  version: 8.0.4
-  resolution: "@builder.io/react@npm:8.0.4"
-  dependencies:
-    "@builder.io/sdk": 6.0.2
-    "@emotion/core": ^10.0.17
-    hash-sum: ^2.0.0
-    isolated-vm: ^5.0.0
-    node-fetch: ^2.6.1
-    preact: ^10.1.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ">=16.8.0 || ^19.0.0-rc"
-    react-dom: ">=16.8.0 || ^19.0.0-rc"
-  dependenciesMeta:
-    node-fetch:
-      optional: true
-    prop-types:
-      optional: true
-  checksum: 1bbf57d075d40392087f59b791aa87aba3d3f1b1ad1ea0770b9f6c52e7c3f40ea8901ff1cf55ddfbc66b8487ae65c4ed68eaa2f6f762510f52ff72ae892df37a
-  languageName: node
-  linkType: hard
-
 "@builder.io/root@workspace:.":
   version: 0.0.0-use.local
   resolution: "@builder.io/root@workspace:."
@@ -876,17 +839,6 @@ __metadata:
       built: false
   languageName: unknown
   linkType: soft
-
-"@builder.io/sdk@npm:6.0.2":
-  version: 6.0.2
-  resolution: "@builder.io/sdk@npm:6.0.2"
-  dependencies:
-    hash-sum: ^2.0.0
-    node-fetch: ^2.3.0
-    tslib: ^1.10.0
-  checksum: 5d09dbcf1876f25138c179f98b81d9688f3848e1c2ed178a2a1b9187666fb28bb800d8288e091fe8adda15a88d5d038e3eabfc7c87c45ec9efeb4b9842fab96b
-  languageName: node
-  linkType: hard
 
 "@builder.io/shopify@npm:1.3.42-3":
   version: 1.3.42-3
@@ -4753,7 +4705,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^11.0.1":
+"@types/fs-extra@npm:^11.0.1, @types/fs-extra@npm:^11.0.4":
   version: 11.0.4
   resolution: "@types/fs-extra@npm:11.0.4"
   dependencies:
@@ -5005,6 +4957,13 @@ __metadata:
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.18.63":
+  version: 14.18.63
+  resolution: "@types/node@npm:14.18.63"
+  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
   languageName: node
   linkType: hard
 
@@ -11295,6 +11254,17 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^2.0.0
   checksum: b12e42fa40ba47104202f57b8480dd098aa931c2724565e5e70779ab87605665594e76ee5fb00545f772ab9ace167fe06d2ab009c416dc8c842c5ae6df7aa7e8
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^11.1.1":
+  version: 11.3.0
+  resolution: "fs-extra@npm:11.3.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: f983c706e0c22b0c0747a8e9c76aed6f391ba2d76734cf2757cd84da13417b402ed68fe25bace65228856c61d36d3b41da198f1ffbf33d0b34283a2f7a62c6e9
   languageName: node
   linkType: hard
 
@@ -21017,6 +20987,7 @@ __metadata:
     react-dom: ^16.9.0
     react-router-dom: ^5.0.1
     vite: ^4.5.3
+    vite-plugin-external: ^4.3.1
   languageName: unknown
   linkType: soft
 
@@ -25068,16 +25039,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:3.3.3":
-  version: 3.3.3
-  resolution: "typescript@npm:3.3.3"
-  bin:
-    tsc: ./bin/tsc
-    tsserver: ./bin/tsserver
-  checksum: 92f665d207f16b68addf872a5a25bc9e1817bdddf674b0db0635273f080295af09ab019c91e1274a43c274e9ff1238f8a34ded04573ffab10cb4015ac137a9f5
-  languageName: node
-  linkType: hard
-
 "typescript@npm:3.7.x":
   version: 3.7.7
   resolution: "typescript@npm:3.7.7"
@@ -25105,16 +25066,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 6c38b1e989918e576f0307e6ee013522ea480dfce5f3ca85c9b2d8adb1edeffd37f4f30cd68de0c38a44563d12ba922bdb7e36aa2dac9c51de5d561e6e9a2e9c
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@3.3.3#~builtin<compat/typescript>":
-  version: 3.3.3
-  resolution: "typescript@patch:typescript@npm%3A3.3.3#~builtin<compat/typescript>::version=3.3.3&hash=9a3324"
-  bin:
-    tsc: ./bin/tsc
-    tsserver: ./bin/tsserver
-  checksum: 51c992c212cff7a26dec9478decdec1e1097041cd166fc79c45a7c33aaa9ac45a1cc30873d045cf76fbc88a002fcdcec21c6e143a5aaaeb3741bf51baaf0b500
   languageName: node
   linkType: hard
 
@@ -25695,6 +25646,17 @@ __metadata:
     "@types/unist": ^3.0.0
     vfile-message: ^4.0.0
   checksum: 152b6729be1af70df723efb65c1a1170fd483d41086557da3651eea69a1dd1f0c22ea4344834d56d30734b9185bcab63e22edc81d3f0e9bed8aa4660d61080af
+  languageName: node
+  linkType: hard
+
+"vite-plugin-external@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "vite-plugin-external@npm:4.3.1"
+  dependencies:
+    "@types/fs-extra": ^11.0.4
+    "@types/node": ^14.18.63
+    fs-extra: ^11.1.1
+  checksum: 53a5685aada1eb245144f44e1f2bd0cd24b95fb75e5607456d252d6b13925182dfe31c99133d05d52061122b70aee839b9f651c9b71e93c52f6a61169f53d647
   languageName: node
   linkType: hard
 

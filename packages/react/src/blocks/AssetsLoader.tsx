@@ -163,7 +163,7 @@ type AssetsLoaderComponentProps = {
     }
   
     async loadAssets() {
-      const { urls, unpkgUrl = 'https://unpkg.com' } = this.props;
+      const { urls = Builder.settings.assetUrls || [], unpkgUrl = Builder.settings.unpkgUrl || 'https://unpkg.com' } = this.props;
       await AssetsLoaderClass.registerRemoteAssets(urls, unpkgUrl);
       this.setState({ assetsLoaded: true });
     }
