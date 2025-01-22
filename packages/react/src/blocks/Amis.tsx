@@ -41,23 +41,23 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
 
   registerComponents() {
 
-    Builder.components.forEach((componentMeta:any) => {
-      const component = componentMeta.class
+    Builder.components.forEach((component:any) => {
+      let componentClass = component.class
+      const meta = component.meta
 
-      if (component && component.plugins && component.plugins.amis && component.plugins.amis.render && !component.plugins.amis.isRegisterd) {
-          console.log(`Register amis component: ${component.plugins.amis.render.type}`, component.plugins.amis.render);
+      if (componentClass && meta && meta.amis && meta.amis.render && !meta.amis.isRegisterd) {
+          console.log(`Register amis component: ${meta.amis.render.type}`, meta.amis.render);
           //注册自定义组件，请参考后续对工作原理的介绍
-          let componentClass = component;
-          if (component.plugins.componentType === 'amisSchema') {
+          if (meta.componentType === 'amisSchema') {
             componentClass = (props) => (
-              <AmisRenderer {...props} schema={component}/>
+              <AmisRenderer {...props} schema={component.class}/>
             )
           }
           this.amisLib.Renderer({
             autoVar: true,
-            ...component.plugins.amis.render
+            ...meta.amis.render
           })(componentClass);
-          component.plugins.amis.isRegisterd = true;
+          meta.amis.isRegisterd = true;
       }
     });
   }
@@ -93,7 +93,6 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
       },
       ...Builder.settings.env,
       ...context.env,
-      ...data.env,
     };
     console.log('render amis', this.props, data, env);
     this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, {data}, env);

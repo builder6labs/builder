@@ -94,12 +94,11 @@ export class AssetsLoaderClass {
             const pkg = (window as any)[library]
             if (pkg && pkg[comp.npm.exportName]){
               const component = pkg[comp.npm.exportName];
-              component['plugins'] = comp;
               // 判断 Builder6.components 中name是否存在，如果不存在则创建
               if (!Builder.components.find((item: any) => item.name === comp.componentName)) {
                 Builder.registerComponent(
                   component,
-                  { name: comp.componentName}
+                  { name: comp.componentName, meta: comp}
                 );
               }
             } else {
