@@ -5,9 +5,6 @@ import { BuilderComponent, Builder, builder, useIsPreviewing } from '@builder6/r
 
 import './index.css';
 
-window['Builder'] = Builder;
-window['builder'] = builder;
-
 Builder.overrideHost = import.meta.env.VITE_B6_ROOT_URL;
 Builder.settings.env = {
   theme: 'antd',
@@ -18,7 +15,6 @@ Builder.settings.env = {
     }
     return api;
   },
-  hello: 'world',
 }
 
 Builder.settings.context = {

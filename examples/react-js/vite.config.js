@@ -11,6 +11,7 @@ export default defineConfig({
       externals: {
         react: 'React',
         'react-dom': 'ReactDOM',
+        '@builder6/react': 'Builder6React',
       }
     }),
   ],
