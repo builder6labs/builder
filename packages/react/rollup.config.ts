@@ -17,10 +17,15 @@ const externalDependencies = Object.keys(pkg.dependencies)
   .filter(item => item !== 'tslib')
   .concat(Object.keys(pkg.peerDependencies || {}));
 
+const globals = { 
+  react: 'React',
+  'react-dom': 'ReactDOM',
+}
+  
 const options = {
   input: `src/${libraryName}.ts`,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['isolated-vm'],
+  external: ['isolated-vm', 'react', 'react-dom'],
   watch: {
     include: '../**',
   },
@@ -83,9 +88,10 @@ export default [
       file: 'dist/builder-react.browser.js',
       name: 'Builder6React',
       format: 'umd',
+      globals,
       sourcemap: true,
       amd: {
-        id: '@builder.io/react',
+        id: '@builder6/react',
       },
     },
   },
@@ -137,6 +143,7 @@ export default [
       file: pkg.unpkg,
       format: 'iife',
       name: 'Builder6React',
+      globals,
       sourcemap: true,
     },
   },
