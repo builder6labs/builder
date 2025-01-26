@@ -49,6 +49,7 @@
   "resolutions": {
     "@builder6/react": "workspace:*",
     "@builder6/sdk": "workspace:*",
+    "@builder6/widgets": "workspace:*",
     "tslib": "^2.6.3",
     "minimist": "^1.2.7",
     "json5": "2.2.1",

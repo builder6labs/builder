@@ -16,12 +16,14 @@ export const liquidConfig: any = {
       code: true,
     },
   ],
-  plugins: {
+  meta: {
     amis: {
-      type: 'builder6-liquid',
-      usage: 'renderer',
-      autoVar: true,
-      icon: "fa-fw fa fa-list-alt"
+      render: {
+        type: 'builder6-liquid',
+        usage: 'renderer',
+        autoVar: true,
+        icon: "fa-fw fa fa-list-alt"
+      }
     }
   }
 }
