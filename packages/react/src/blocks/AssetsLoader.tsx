@@ -29,30 +29,47 @@ export class AssetsLoaderClass {
   static unpkgUrl: string;
   static componentWrapper: Function;
 
+  static loadPromise: Promise<void> | null = null;
+
   static async registerRemoteAssets(assetUrls: string[], unpkgUrl): Promise<void> {
+
+    if (this.loadPromise) {
+      // 如果已有加载过程正在进行，返回现有的 Promise
+      return this.loadPromise;
+    }
+
     this.unpkgUrl = unpkgUrl;
-    for await (let assetUrl of assetUrls) {
-      assetUrl = assetUrl.replace('https://unpkg.com', this.unpkgUrl);
-      if (this.remoteAssets[assetUrl]) {
-        console.log(`Already loading: ${assetUrl}`);
-        continue;
-      }
-
-      this.remoteAssets[assetUrl] = 'loading';
-
-      try {
-        const response = await fetch(assetUrl, { mode: 'cors' });
-        if (!response.ok) {
-          throw new Error(`Failed to fetch asset: ${response.statusText}`);
+    this.loadPromise = (async () => {
+      for await (let assetUrl of assetUrls) {
+        assetUrl = assetUrl.replace('https://unpkg.com', this.unpkgUrl);
+        if (this.remoteAssets[assetUrl]) {
+          console.log(`已经在加载: ${assetUrl}`);
+          continue;
         }
-        const assets: AssetConfig = await response.json();
-        await this.registerAssets(assets);
-        console.log(`Assets loaded: ${assetUrl}`);
-      } catch (error) {
-        console.error(`Error loading asset from ${assetUrl}:`, error);
-      } finally {
-        this.remoteAssets[assetUrl] = 'loaded';
+
+        this.remoteAssets[assetUrl] = 'loading';
+
+        try {
+          const response = await fetch(assetUrl, { mode: 'cors' });
+          if (!response.ok) {
+            throw new Error(`无法获取资产: ${response.statusText}`);
+          }
+          const assets: AssetConfig = await response.json();
+          await this.registerAssets(assets);
+          console.log(`资产已加载: ${assetUrl}`);
+        } catch (error) {
+          console.error(`从 ${assetUrl} 加载资产时出错:`, error);
+        } finally {
+          this.remoteAssets[assetUrl] = 'loaded';
+        }
       }
+    })();
+
+    try {
+      await this.loadPromise;
+    } finally {
+      // 加载完成后重置 Promise
+      this.loadPromise = null;
     }
   }
 

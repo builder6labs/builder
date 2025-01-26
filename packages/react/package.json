@@ -1,6 +1,6 @@
 {
   "name": "@builder6/react",
-  "version": "8.0.7",
+  "version": "8.0.8",
   "description": "",
   "keywords": [],
   "main": "dist/builder-react.cjs.js",
@@ -26,7 +26,7 @@
     "test:watch": "jest --watch",
     "test:prod": "yarn lint && yarn test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
-    "release": "yarn build && npm publish",
+    "release": "yarn build && npm publish --registry https://registry.npmjs.org",
     "release:major": "yarn build && yarn version major && yarn npm publish",
     "release:minor": "yarn build && yarn version minor && yarn npm publish",
     "release:patch": "yarn build && yarn version patch && yarn npm publish",
