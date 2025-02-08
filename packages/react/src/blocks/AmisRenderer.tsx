@@ -18,7 +18,6 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
   constructor(props) {
 
     super(props);
-    console.log('AmisRenderer props', props)
     this.state = {
       schema: null,
     };
@@ -27,9 +26,7 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
   loadSchema = async () => {
     const { schema } = this.props;
     if (typeof schema === 'function') {
-      console.log('loadSchema', schema, this.props);
       const result = await schema(this.props);
-      console.log('loadSchema result:', result);
       this.setState({ schema: result });
     } else {
       this.setState({ schema: schema });
@@ -59,7 +56,7 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
   render(): React.ReactNode {
       
     if (!this.state.schema) {
-      return <div>Loading Schema...</div>;
+      return <div className='loading'></div>;
     }
 
     return (

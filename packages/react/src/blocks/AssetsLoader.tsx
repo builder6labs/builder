@@ -153,6 +153,7 @@ type AssetsLoaderComponentProps = {
     urls: string[];
     unpkgUrl: string,
     children?: React.ReactNode;
+    loading?: React.ReactNode;
   };
   
   type AssetsLoaderComponentState = {
@@ -186,10 +187,15 @@ type AssetsLoaderComponentProps = {
   
     render() {
       const { assetsLoaded } = this.state;
-      const { children, urls } = this.props;
+      const { loading } = this.props;
   
       if (!assetsLoaded) {
-        return <div>Loading assets from {urls} ...</div>;
+        // Check if a loading component is passed via props
+        if (loading) {
+          // If so, use that loading component
+          return loading;
+        }
+        return <div className='builder-loading'></div>;
       }
   
       return (
