@@ -1,6 +1,6 @@
 /*
- * @LastEditTime: 2024-06-06 22:10:52
- * @LastEditors: liaodaxue
+ * @LastEditTime: 2025-02-15 19:58:46
+ * @LastEditors: baozhoutao@steedos.com
  * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 'use client';
@@ -93,6 +93,7 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
       },
       ...Builder.settings.env,
       ...context.env,
+      ...this.props.env
     };
     console.log('render amis', this.props, data, env);
     this.amisScoped = this.amis.embed(this.ref.current, this.props.schema, {data}, env);
