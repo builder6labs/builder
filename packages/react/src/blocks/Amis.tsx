@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2025-02-15 19:58:46
+ * @LastEditTime: 2025-02-20 16:12:51
  * @LastEditors: baozhoutao@steedos.com
  * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -46,7 +46,7 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
       const meta = component.meta
 
       if (componentClass && meta && meta.amis && meta.amis.render && !meta.amis.isRegisterd) {
-          console.log(`Register amis component: ${meta.amis.render.type}`, meta.amis.render);
+          // console.log(`Register amis component: ${meta.amis.render.type}`, meta.amis.render);
           //注册自定义组件，请参考后续对工作原理的介绍
           if (meta.componentType === 'amisSchema') {
             componentClass = (props) => (
@@ -100,12 +100,16 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
   }
 
   async componentDidUpdate(prevProps) {
-
-    if (prevProps.schema !== this.props.schema) {
+    // console.log('Amis componentDidUpdate', prevProps, this.props);
+    if (JSON.stringify(prevProps.schema) !== JSON.stringify(this.props.schema)) {
+      // console.log(`Amis componentDidUpdate schema`, this.props.schema);
       this.amisScoped.updateSchema(this.props.schema);
     }
-    else if (prevProps.data !== this.props.data) {
-      this.amisScoped.updateProps(this.props.data, () => {
+    else if (JSON.stringify(prevProps.data) !== JSON.stringify(this.props.data)) {
+      // console.log(`Amis componentDidUpdate data`, this.props.data);
+      this.amisScoped.updateProps({
+        data: this.props.data
+      }, () => {
         /*更新回调 */
       });
     }
