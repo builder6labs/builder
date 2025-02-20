@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2025-02-20 16:12:51
+ * @LastEditTime: 2025-02-20 17:52:46
  * @LastEditors: baozhoutao@steedos.com
  * @customMade: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -102,11 +102,11 @@ export class AmisComponent extends React.Component<PropsWithChildren<AmisProps>>
   async componentDidUpdate(prevProps) {
     // console.log('Amis componentDidUpdate', prevProps, this.props);
     if (JSON.stringify(prevProps.schema) !== JSON.stringify(this.props.schema)) {
-      // console.log(`Amis componentDidUpdate schema`, this.props.schema);
+      console.log(`Amis componentDidUpdate schema`, this.props.schema);
       this.amisScoped.updateSchema(this.props.schema);
     }
     else if (JSON.stringify(prevProps.data) !== JSON.stringify(this.props.data)) {
-      // console.log(`Amis componentDidUpdate data`, this.props.data);
+      console.log(`Amis componentDidUpdate data`, this.props.data);
       this.amisScoped.updateProps({
         data: this.props.data
       }, () => {

@@ -32,8 +32,10 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
     }
     if (typeof schema === 'function') {
       const result = await schema(props);
+      console.log(`AmisRenderer loadSchema result`, result)
       this.setState({ schema: result });
     } else {
+      console.log(`AmisRenderer loadSchema schema`, schema)
       this.setState({ schema: schema });
     }
   };
@@ -46,10 +48,12 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
   async componentDidUpdate(prevProps) {
     // console.log(`AmisRenderer componentDidUpdate`, prevProps, this.props);
     if (JSON.stringify(prevProps.$schema) !== JSON.stringify(this.props.$schema)) {
+      console.log(`AmisRenderer componentDidUpdate schema`)
       await this.loadSchema();
       // this.amisScoped.updateSchema(this.state.schema);
     }
     else if (prevProps.data !== this.props.data) {
+      console.log(`AmisRenderer componentDidUpdate data`)
       await this.loadSchema();
       // await this.loadData();
       // this.amisScoped.updateProps(this.state.data, () => {
@@ -63,6 +67,7 @@ export class AmisRenderer extends React.Component<PropsWithChildren<AmisRenderer
     if (!this.state.schema) {
       return <div className='loading'></div>;
     }
+    console.log(`AmisRenderer render`, this.state.schema)
     return (
       <>
         {this.props.render('body', this.state.schema)}
